@@ -69,13 +69,6 @@ export default function Header() {
               <a className="text-sm md:text-lg p-2 text-white">For Creators</a>
             </Link>
           </li>
-          <li className={`${styles.navItem} border-r-2 `}>
-            <Link href="/server">
-              <a className="text-sm md:text-lg p-2 text-white">
-                Why Sponsors here?
-              </a>
-            </Link>
-          </li>
           <li className={`${styles.navItem} `}>
             <Link href="/protected">
               <a className="text-sm md:text-lg p-2 text-white">Contact Us</a>
