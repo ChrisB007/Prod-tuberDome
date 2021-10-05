@@ -25,7 +25,8 @@ export default function Header() {
         >
           {!session && (
             <>
-              <Logo />
+              {/* <Logo /> */}
+              <img className="logo" src="/images/berdome.png" />
 
               <a
                 href={`/api/auth/signin`}
@@ -41,7 +42,8 @@ export default function Header() {
           )}
           {session && (
             <>
-              <Logo />
+              {/* <Logo /> */}
+              <img className="logo" src="/images/berdome.png" />
 
               <a
                 href={`/api/auth/signout`}

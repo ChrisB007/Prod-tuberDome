@@ -25,15 +25,10 @@
     margin: auto;
 }
 
-.logo {
-    color: #a70000;
-    font-size: 1.7em;
-    position: relative;
-    bottom: 20px;
-    left: 6px;
-    font-family: 'Squada One', cursive;
-    margin: auto;
-}
+.logo{
+    max-width: 168px;
+    border-radius: 7px;
+  }
 
 .nav-header{
     margin: auto;
