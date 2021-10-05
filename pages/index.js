@@ -83,7 +83,7 @@ export default function Home({ finalData }) {
 export async function getStaticProps(context) {
   //Base Url
 
-  const baseUrl = "http://localhost:3000";
+  const baseUrl = "https://tuberdome.com";
 
   const initialData = await fetch(`${baseUrl}/api/channels`, {
     method: "GET",
