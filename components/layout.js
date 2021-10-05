@@ -1,14 +1,34 @@
-import Header from '../components/header'
-import Footer from '../components/footer'
+import React from "react";
+import Footer from "./Footer";
+import Header from "../components/header";
+import Navbar from "./Navbar";
 
-export default function Layout ({children}) {
+function Layout({ children }) {
   return (
-    <>
-      <Header/>
-      <main>
+    <div>
+      <div>
+        <Header />
+      </div>
+      <div>
         {children}
-      </main>
-      <Footer/>
-    </>
-  )
+        <Footer />
+      </div>
+    </div>
+  );
 }
+
+export default Layout;
+
+// import Footer from '../components/footer'
+
+// export default function Layout ({children}) {
+//   return (
+//     <>
+//       <Header/>
+//       <main>
+//         {children}
+//       </main>
+//       <Footer/>
+//     </>
+//   )
+// }

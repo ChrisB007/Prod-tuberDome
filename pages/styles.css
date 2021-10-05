@@ -1,30 +1,75 @@
-body {
-  font-family: -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-  padding: 0 1rem 1rem 1rem;
-  max-width: 680px;
-  margin: 0 auto;
-  background: #fff;
-  color: #333;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+
+.login-button{
+    width: 200px;
+}
+.button-text{
+    font-size: 1rem !important;
+}
+.body{
+    background-color: #000;
+}
+.hero-text{
+    font-size: 0.9em;
+    
+}
+.provider-button{
+    width: 350px;
+    background-color: #fff;
+}
+.logosvg {
+    width: 4rem;
+    margin: auto;
 }
 
-li,
-p {
-  line-height: 1.5rem;
+.logo {
+    color: #a70000;
+    font-size: 1.7em;
+    position: relative;
+    bottom: 20px;
+    left: 6px;
+    font-family: 'Squada One', cursive;
+    margin: auto;
 }
 
-a {
-  font-weight: 500;
+.herotext {
+    color: #ffffff;
+    font-size: 4rem;
+    text-align: center;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px #000000;
+}
+.logosvg {
+    width: 4rem;
+    margin: auto;
+}
+.aligntext {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }
 
-hr {
-  border: 1px solid #ddd;
+.creator-box{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
-
-iframe {
-  background: #ccc;
-  border: 1px solid #ccc;
-  height: 10rem;
-  width: 100%;
-  border-radius: .5rem;
-  filter: invert(1);
+.create-image{
+    width: 90% !important;
+    padding-top: 7px;
+    object-fit: cover;
+}
+.disp-card{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
+.center-grid{
+    margin: auto !important;
+}
+.card{
+    height: 260px;
+    padding: 20px;
+    margin: 10px;
+    width: 100%;
 }
