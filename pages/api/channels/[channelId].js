@@ -1,4 +1,4 @@
-import lists from "./channelList";
+import lists from "../../../components/channelList";
 
 function channellistsId(req, res) {
   const listsId = req.query.listsId;

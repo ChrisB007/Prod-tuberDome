@@ -1,4 +1,4 @@
-import lists from "./channelList";
+import lists from "../../../components/channelList";
 
 async function index(req, res) {
   const httpMethod = req.method;
