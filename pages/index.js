@@ -52,7 +52,7 @@ export default function Home() {
               </div>
               <TuberOne />
               <div className="center-grid grid m-auto grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 relative overflow-scroll scrollbar-hide p-3 -ml-3 w-full sm:w-4/5 md:w-4/5 lg:w-4/5">
-                {finalData?.map((data) => (
+                {finalData?.slice(5, 17)?.map((data) => (
                   <div key={data?.name} className="m-auto w-11/12">
                     <div className="pt-5 ">
                       <CreatorsList
