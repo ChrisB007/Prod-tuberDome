@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/client";
 import styles from "./header.module.css";
+import Image from "next/image";
+import Logo from "./Logo";
 
 // The approach used in this component shows how to build a sign in and sign out
 // component that works on pages which support both client and server side
@@ -13,7 +15,9 @@ export default function Header() {
       <noscript>
         <style>{`.nojs-show { opacity: 1; top: 0; }`}</style>
       </noscript>
-      <div className={`${styles.signedInStatus} bg-gray-600`}>
+      <div
+        className={`${styles.signedInStatus} bg-gradient-to-r from-white via-gray-200 to-gray-500 shadow overflow-hidden`}
+      >
         <p
           className={`nojs-show ${
             !session && loading ? styles.loading : styles.loaded
@@ -21,9 +25,8 @@ export default function Header() {
         >
           {!session && (
             <>
-              <span className={styles.notSignedInText}>
-                You are not signed in
-              </span>
+              <Logo />
+
               <a
                 href={`/api/auth/signin`}
                 className={styles.buttonPrimary}
@@ -38,20 +41,11 @@ export default function Header() {
           )}
           {session && (
             <>
-              {session.user.image && (
-                <span
-                  style={{ backgroundImage: `url(${session.user.image})` }}
-                  className={styles.avatar}
-                />
-              )}
-              <span className={styles.signedInText}>
-                <small>Signed in as</small>
-                <br />
-                <strong>{session.user.email || session.user.name}</strong>
-              </span>
+              <Logo />
+
               <a
                 href={`/api/auth/signout`}
-                className={styles.button}
+                className={styles.buttonPrimary}
                 onClick={(e) => {
                   e.preventDefault();
                   signOut();
@@ -63,26 +57,28 @@ export default function Header() {
           )}
         </p>
       </div>
-      <nav className="nav-header bg-gradient-to-r from-gray-500 via-gray-200 to-gray-800  flex m-auto justify-start items-center ml-10 mt-4">
+      <nav className="nav-header bg-gray-400  flex m-auto justify-end items-center pt-3 ml-10 mt-4">
         <ul className={styles.navItems}>
           <li className={`${styles.navItem} border-r-2 `}>
             <Link href="/">
-              <a className="p-2 text-white">Why sponsor here?</a>
+              <a className="text-sm p-2 md:text-lg text-white">For Sponsors</a>
             </Link>
           </li>
           <li className={`${styles.navItem} border-r-2 `}>
             <Link href="/client">
-              <a className="p-2 text-white">For Creators</a>
+              <a className="text-sm md:text-lg p-2 text-white">For Creators</a>
             </Link>
           </li>
           <li className={`${styles.navItem} border-r-2 `}>
             <Link href="/server">
-              <a className="p-2 text-white">For Sponsors</a>
+              <a className="text-sm md:text-lg p-2 text-white">
+                Why Sponsors here?
+              </a>
             </Link>
           </li>
           <li className={`${styles.navItem} `}>
             <Link href="/protected">
-              <a className="p-2 text-white">Contact Us</a>
+              <a className="text-sm md:text-lg p-2 text-white">Contact Us</a>
             </Link>
           </li>
         </ul>
