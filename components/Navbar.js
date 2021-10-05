@@ -1,5 +1,6 @@
 import React from "react";
 import { Fragment } from "react";
+import { signIn, signOut, useSession } from "next-auth/client";
 import { Popover, Transition } from "@headlessui/react";
 import {
   ChartBarIcon,
@@ -43,6 +44,11 @@ function classNames(...classes) {
 }
 
 function Nav() {
+  const [session, loading] = useSession();
+  const user = session?.user;
+  console.log(session);
+  console.log(user);
+
   return (
     <div className="sticky top-0 z-50">
       <Popover className="relative bg-gradient-to-r from-gray-200 via-gray-300 to-gray-500 shadow">
@@ -177,7 +183,7 @@ function Nav() {
                 </Popover.Group>
                 {}
                 <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                  <span className="text-white">{userLoggedIn()}</span>
+                  {/* <span className="text-white">{userLoggedIn()}</span> */}
                 </div>
               </div>
             </div>
@@ -256,12 +262,52 @@ function Nav() {
                   </div>
                   <div className="py-6 px-5 space-y-6">
                     <div>
-                      <a
-                        href="/signIn"
-                        className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700"
-                      >
-                        Sign up | Sign in
-                      </a>
+                      <p className="">
+                        {!session && (
+                          <>
+                            <span className="">You are not signed in</span>
+                            <bu
+                              href={`/api/auth/signin`}
+                              className=""
+                              onClick={(e) => {
+                                e.preventDefault();
+                                signIn();
+                              }}
+                            >
+                              Sign in
+                            </bu>
+                          </>
+                        )}
+                        {session && (
+                          <>
+                            {session.user.image && (
+                              <span
+                                style={{
+                                  backgroundImage: `url(${session.user.image})`,
+                                }}
+                                className=""
+                              />
+                            )}
+                            <span className="">
+                              <small>Signed in as</small>
+                              <br />
+                              <strong>
+                                {session.user.email || session.user.name}
+                              </strong>
+                            </span>
+                            <a
+                              href={`/api/auth/signout`}
+                              className=""
+                              onClick={(e) => {
+                                e.preventDefault();
+                                signOut();
+                              }}
+                            >
+                              Sign out
+                            </a>
+                          </>
+                        )}
+                      </p>
                     </div>
                   </div>
                 </div>

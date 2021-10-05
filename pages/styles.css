@@ -35,6 +35,11 @@
     margin: auto;
 }
 
+.nav-header{
+    margin: auto;
+    padding-left: 30px;
+}
+
 .herotext {
     color: #ffffff;
     font-size: 4rem;
