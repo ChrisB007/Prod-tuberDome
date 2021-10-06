@@ -52,15 +52,17 @@ export default function Jumbotron() {
                   Brands and Marketers
                 </span>
                 <span className="mt-1 block text-4xl tracking-tight font-extrabold sm:text-5xl xl:text-6xl">
-                  <span className="block text-gray-900">Sponsor YouTube</span>
-                  <span className="block text-red-600">Content Creators</span>
+                  <span className="block text-black">
+                    Sponsor <span className="text-green-900">Streamers</span>
+                  </span>
+
+                  <span className="block text-red-600">& Content Creators</span>
                 </span>
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
                 There are thousands of talented creators making great videos
-                every week on YouTube for millions to view, and we present those
-                with at least{" "}
-                <span className="boldtxt">300,000 subscribers</span> each
+                every week for millions to view, and we present those with at
+                least <span className="boldtxt">300,000 subscribers</span> each
                 spanning across{" "}
                 <span className="boldtxt">multiple categories</span> that align
                 with your brand. Sponsor their efforts today and reach more

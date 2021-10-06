@@ -62,17 +62,17 @@ export default function Header() {
       <nav className="nav-header bg-gray-400  flex m-auto justify-end items-center pt-3 ml-10 mt-4">
         <ul className={styles.navItems}>
           <li className={`${styles.navItem} border-r-2 `}>
-            <Link href="/">
+            <Link href="/sponsors">
               <a className="text-sm p-2 md:text-lg text-white">For Sponsors</a>
             </Link>
           </li>
           <li className={`${styles.navItem} border-r-2 `}>
-            <Link href="/client">
+            <Link href="/creators">
               <a className="text-sm md:text-lg p-2 text-white">For Creators</a>
             </Link>
           </li>
           <li className={`${styles.navItem} `}>
-            <Link href="/protected">
+            <Link href="/contact">
               <a className="text-sm md:text-lg p-2 text-white">Contact Us</a>
             </Link>
           </li>

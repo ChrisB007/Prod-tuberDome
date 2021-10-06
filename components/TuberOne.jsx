@@ -1,35 +1,35 @@
 /* This example requires Tailwind CSS v2.0+ */
 import {
   AnnotationIcon,
-  GlobeAltIcon,
-  LightningBoltIcon,
-  ScaleIcon,
+  CashIcon,
+  CurrencyDollarIcon,
+  DocumentReportIcon,
 } from "@heroicons/react/outline";
 
 const features = [
   {
-    name: "Competitive exchange rates",
+    name: "Sponsorship Acquisition & Retention",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
-    icon: GlobeAltIcon,
+      "We secure lucrative media sponsorship deals for your channels and send offers your way.",
+    icon: CurrencyDollarIcon,
   },
   {
-    name: "No hidden fees",
+    name: "Billing and Payment",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
-    icon: ScaleIcon,
+      "Our system makes it seamless to collect and disburse payments between creators and their sponsors",
+    icon: CashIcon,
   },
   {
-    name: "Transfers are instant",
+    name: "Communication & Creative Tools",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
-    icon: LightningBoltIcon,
-  },
-  {
-    name: "Mobile notifications",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
+      "Integrated tools makes it easy for our creators to communicate at any stage in the process with their sponsors.",
     icon: AnnotationIcon,
+  },
+  {
+    name: "Transparent Report Sheet",
+    description:
+      "See what, where and how things are progressing with our transparent reporting tools.",
+    icon: DocumentReportIcon,
   },
 ];
 
@@ -38,15 +38,16 @@ export default function Marketing() {
     <div className="py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:text-center">
-          <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">
-            Transactions
+          <h2 className="text-base text-red-600 font-semibold tracking-wide uppercase">
+            Creators
           </h2>
           <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            A better way to send money
+            Here's a better way to manage sponsorships
           </p>
           <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-            Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam
-            voluptatum cupiditate veritatis in accusamus quisquam.
+            Our services span across all facets of sponsorship for both sponsors
+            and creators. From planning, accomplishing tasks, and achieving
+            sponsorship goals. Our services include but are not limited to:
           </p>
         </div>
 
@@ -55,7 +56,7 @@ export default function Marketing() {
             {features.map((feature) => (
               <div key={feature.name} className="relative">
                 <dt>
-                  <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                  <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white">
                     <feature.icon className="h-6 w-6" aria-hidden="true" />
                   </div>
                   <p className="ml-16 text-lg leading-6 font-medium text-gray-900">
