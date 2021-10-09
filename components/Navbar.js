@@ -21,7 +21,14 @@ import {
   XIcon,
 } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
-import { getSession, signIn, signOut, useSession } from "next-auth/client";
+import {
+  getSession,
+  signin,
+  signIn,
+  signout,
+  signOut,
+  useSession,
+} from "next-auth/client";
 
 const solutions = [
   {
@@ -122,92 +129,11 @@ export default function Navbar() {
           </div>
           <div className="hidden md:flex-1 md:flex md:items-center md:justify-between">
             <Popover.Group as="nav" className="flex space-x-10">
-              <Popover>
-                {({ open }) => (
-                  <>
-                    <Popover.Button
-                      className={classNames(
-                        open ? "text-gray-900" : "text-gray-500",
-                        "group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
-                      )}
-                    >
-                      <span>Sponsors</span>
-                      <ChevronDownIcon
-                        className={classNames(
-                          open ? "text-gray-600" : "text-gray-400",
-                          "ml-2 h-5 w-5 group-hover:text-gray-500"
-                        )}
-                        aria-hidden="true"
-                      />
-                    </Popover.Button>
-
-                    <Transition
-                      as={Fragment}
-                      enter="transition ease-out duration-200"
-                      enterFrom="opacity-0 -translate-y-1"
-                      enterTo="opacity-100 translate-y-0"
-                      leave="transition ease-in duration-150"
-                      leaveFrom="opacity-100 translate-y-0"
-                      leaveTo="opacity-0 -translate-y-1"
-                    >
-                      <Popover.Panel className="hidden md:block absolute z-10 top-full inset-x-0 transform shadow-lg bg-white">
-                        <div className="max-w-7xl mx-auto grid gap-y-6 px-4 py-6 sm:grid-cols-2 sm:gap-8 sm:px-6 sm:py-8 lg:grid-cols-4 lg:px-8 lg:py-12 xl:py-16">
-                          {solutions.map((item) => (
-                            <a
-                              key={item.name}
-                              href={item.href}
-                              className="-m-3 p-3 flex flex-col justify-between rounded-lg hover:bg-gray-50"
-                            >
-                              <div className="flex md:h-full lg:flex-col">
-                                <div className="flex-shrink-0">
-                                  <span className="inline-flex items-center justify-center h-10 w-10 rounded-md bg-gray-500 text-white sm:h-12 sm:w-12">
-                                    <item.icon
-                                      className="h-6 w-6"
-                                      aria-hidden="true"
-                                    />
-                                  </span>
-                                </div>
-                                <div className="ml-4 md:flex-1 md:flex md:flex-col md:justify-between lg:ml-0 lg:mt-4">
-                                  <div>
-                                    <p className="text-base font-medium text-gray-900">
-                                      {item.name}
-                                    </p>
-                                    <p className="mt-1 text-sm text-gray-500">
-                                      {item.description}
-                                    </p>
-                                  </div>
-                                  <p className="mt-2 text-sm font-medium text-gray-600 lg:mt-4">
-                                    Learn more{" "}
-                                    <span aria-hidden="true">&rarr;</span>
-                                  </p>
-                                </div>
-                              </div>
-                            </a>
-                          ))}
-                        </div>
-                        <div className="bg-gray-50">
-                          <div className="max-w-7xl mx-auto space-y-6 px-4 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-6 lg:px-8">
-                            {callsToAction.map((item) => (
-                              <div key={item.name} className="flow-root">
-                                <a
-                                  href={item.href}
-                                  className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
-                                >
-                                  <item.icon
-                                    className="flex-shrink-0 h-6 w-6 text-gray-400"
-                                    aria-hidden="true"
-                                  />
-                                  <span className="ml-3">{item.name}</span>
-                                </a>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </Popover.Panel>
-                    </Transition>
-                  </>
-                )}
-              </Popover>
+              <a href="/sponsors">
+                <span className="text-base font-medium text-gray-500 hover:text-gray-900">
+                  Sponsors
+                </span>
+              </a>
               <a
                 href="/creators"
                 className="text-base font-medium text-gray-500 hover:text-gray-900"
@@ -264,8 +190,8 @@ export default function Navbar() {
                 <div>
                   <img
                     className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-mark-gray-600.svg"
-                    alt="Workflow"
+                    src="/images/berdome.png"
+                    alt="TuberDome"
                   />
                 </div>
                 <div className="-mr-2">
@@ -277,91 +203,54 @@ export default function Navbar() {
               </div>
               <div className="mt-6 sm:mt-8">
                 <nav>
-                  <div className="grid gap-7 sm:grid-cols-2 sm:gap-y-8 sm:gap-x-4">
-                    {solutions.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50"
-                      >
-                        <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-gray-500 text-white sm:h-12 sm:w-12">
-                          <item.icon className="h-6 w-6" aria-hidden="true" />
-                        </div>
-                        <div className="ml-4 text-base font-medium text-gray-900">
-                          {item.name}
-                        </div>
-                      </a>
-                    ))}
-                  </div>
-                  <div className="mt-8 text-base">
+                  <div className="grid grid-cols-2 gap-4">
                     <a
-                      href="#"
-                      className="font-medium text-gray-600 hover:text-gray-500"
+                      href="/sponsors"
+                      className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700"
                     >
-                      {" "}
-                      View all products <span aria-hidden="true">&rarr;</span>
+                      Sponsors
+                    </a>
+
+                    <a
+                      href="/creators"
+                      className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700"
+                    >
+                      Creators
+                    </a>
+
+                    <a
+                      href="/contact"
+                      className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700"
+                    >
+                      Contact us
                     </a>
                   </div>
                 </nav>
               </div>
             </div>
             <div className="py-6 px-5">
-              <div className="grid grid-cols-2 gap-4">
-                <a
-                  href="#"
-                  className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700"
-                >
-                  Pricing
-                </a>
-
-                <a
-                  href="#"
-                  className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700"
-                >
-                  Docs
-                </a>
-
-                <a
-                  href="#"
-                  className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700"
-                >
-                  Company
-                </a>
-
-                <a
-                  href="#"
-                  className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700"
-                >
-                  Resources
-                </a>
-
-                <a
-                  href="#"
-                  className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700"
-                >
-                  Blog
-                </a>
-
-                <a
-                  href="#"
-                  className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700"
-                >
-                  Contact Sales
-                </a>
-              </div>
               <div className="mt-6">
-                {/* <a
-                  href="#"
-                  className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700"
-                >
-                  Sign up
-                </a>
-                <p className="mt-6 text-center text-base font-medium text-gray-500">
-                  Existing customer?{" "}
-                  <a href="#" className="text-gray-600 hover:text-gray-500">
-                    Sign in
+                {!session && (
+                  <a
+                    href="`/api/auth/signin`"
+                    onClick={(e) => signin()}
+                    className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700"
+                  >
+                    Sign In
                   </a>
-                </p> */}
+                )}
+                {session && (
+                  <p className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700">
+                    Existing customer?{" "}
+                    <a
+                      href={`/api/auth/signout`}
+                      onClick={(e) => signout()}
+                      className="text-gray-600 hover:text-gray-500"
+                    >
+                      Sign Out
+                    </a>
+                  </p>
+                )}
               </div>
             </div>
           </div>
