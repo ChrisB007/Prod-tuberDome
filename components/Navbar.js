@@ -105,7 +105,7 @@ export default function Navbar() {
       <div className="relative z-20">
         <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-10">
           <div>
-            <a href="#" className="flex">
+            <a href={session ? "/protected" : "/"} className="flex">
               <span className="sr-only">TuberDome</span>
               <img
                 className="h-8 w-auto sm:h-10"
@@ -209,16 +209,16 @@ export default function Navbar() {
                 )}
               </Popover>
               <a
-                href="#"
+                href="/creators"
                 className="text-base font-medium text-gray-500 hover:text-gray-900"
               >
                 Creators
               </a>
               <a
-                href="#"
+                href="/contact"
                 className="text-base font-medium text-gray-500 hover:text-gray-900"
               >
-                Docs
+                Contact us
               </a>
               <Popover>
                 {({ open }) => (
