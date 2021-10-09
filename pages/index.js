@@ -23,7 +23,7 @@ export default function Home() {
             <main className="bg-gradient-to-r from-gray-500 via-gray-200 to-gray-800 ">
               <Jumbotron />
               <div className="pt-5 flex justify-center items-center">
-                <div className="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
+                <div className="space-y-5 text-center px-3 pt-3 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
                   <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
                     Connect with genius Creators
                   </h2>
