@@ -232,8 +232,8 @@ export default function Navbar() {
               <div className="mt-6">
                 {!session && (
                   <a
-                    href="`/api/auth/signin`"
-                    onClick={(e) => signin()}
+                    href={`/api/auth/signin`}
+                    onClick={(e) => signIn()}
                     className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700"
                   >
                     Sign In
@@ -244,7 +244,7 @@ export default function Navbar() {
                     Existing customer?{" "}
                     <a
                       href={`/api/auth/signout`}
-                      onClick={(e) => signout()}
+                      onClick={(e) => signOut}
                       className="text-gray-600 hover:text-gray-500"
                     >
                       Sign Out
