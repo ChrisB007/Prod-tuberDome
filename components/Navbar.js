@@ -29,6 +29,7 @@ import {
   signOut,
   useSession,
 } from "next-auth/client";
+import Link from "next/link";
 
 const solutions = [
   {
@@ -149,19 +150,19 @@ export default function Navbar() {
             </Popover.Group>
             <div className="flex items-center md:ml-12">
               {!session && (
-                <a
+                <Link
                   href={`/api/auth/signin`}
                   className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700"
                   onClick={(e) => signIn()}
                 >
-                  Sign in
-                </a>
+                  <a>Sign in</a>
+                </Link>
               )}
               {session && (
                 <a
                   href={`/api/auth/signout`}
                   className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700"
-                  onClick={(e) => signOut}
+                  onClick={(e) => signOut()}
                 >
                   Sign Out
                 </a>
@@ -244,7 +245,7 @@ export default function Navbar() {
                     Existing customer?{" "}
                     <a
                       href={`/api/auth/signout`}
-                      onClick={(e) => signOut}
+                      onClick={(e) => signOut()}
                       className="text-gray-600 hover:text-gray-500"
                     >
                       Sign Out

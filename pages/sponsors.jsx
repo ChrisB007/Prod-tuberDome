@@ -62,7 +62,7 @@ function sponsors() {
                 Get the word out
               </h2>
               <p className="mt-2 text-2xl font-extrabold text-gray-900 sm:text-3xl">
-                Everything you need to sponsor a bona fide YouTuber.
+                Everything you need to sponsor a bona fide influencer.
               </p>
               <dl className="mt-12 space-y-10">
                 {features.map((feature) => (
