@@ -155,17 +155,17 @@ export default function Navbar() {
                   className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700"
                   onClick={(e) => signIn()}
                 >
-                  <a>Sign in</a>
+                  <a>Sign In</a>
                 </Link>
               )}
               {session && (
-                <a
+                <Link
                   href={`/api/auth/signout`}
                   className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700"
                   onClick={(e) => signOut()}
                 >
-                  Sign Out
-                </a>
+                  <a>Sign Out</a>
+                </Link>
               )}
             </div>
           </div>
@@ -232,24 +232,24 @@ export default function Navbar() {
             <div className="py-6 px-5">
               <div className="mt-6">
                 {!session && (
-                  <a
+                  <Link
                     href={`/api/auth/signin`}
                     onClick={(e) => signIn()}
                     className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700"
                   >
-                    Sign In
-                  </a>
+                    <a>Sign In</a>
+                  </Link>
                 )}
                 {session && (
                   <p className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700">
                     Existing customer?{" "}
-                    <a
+                    <Link
                       href={`/api/auth/signout`}
                       onClick={(e) => signOut()}
                       className="text-gray-600 hover:text-gray-500"
                     >
-                      Sign Out
-                    </a>
+                      <a>Sign Out</a>
+                    </Link>
                   </p>
                 )}
               </div>
