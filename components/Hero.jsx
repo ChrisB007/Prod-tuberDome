@@ -36,7 +36,7 @@ export default function Jumbotron() {
           <rect y={72} width={640} height={640} className="text-gray-50" />
           <rect
             x={118}
-            width={404}
+            width={604}
             height={784}
             fill="url(#9ebea6f4-a1f5-4d96-8c4e-4c2abf658047)"
           />
