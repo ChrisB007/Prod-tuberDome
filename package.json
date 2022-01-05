@@ -15,15 +15,18 @@
   "dependencies": {
     "@headlessui/react": "^1.4.1",
     "@heroicons/react": "^1.0.4",
+    "@prisma/client": "^2.30.3",
     "next": "^11.0.0",
     "next-auth": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "solc": "^0.8.11",
     "sqlite3": "^5.0.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.3.7",
     "postcss": "^8.3.9",
+    "prisma": "^3.7.0",
     "tailwindcss": "^2.2.16"
   }
 }
