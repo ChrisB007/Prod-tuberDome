@@ -1,3 +1,6 @@
+import { useState, useEffect } from "react";
+import SlideInfo from "../pages/slideinfo";
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -12,7 +15,12 @@ export default function CreatorsList({
   total_views,
   rate,
 }) {
-  // const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [info, setInfo] = useState({});
+
+  const handleClick = () => {
+    <SlideInfo />;
+  };
 
   return (
     <>
@@ -56,7 +64,10 @@ export default function CreatorsList({
               </a>
             </div>
           </div>
-          <button className="hover:text-gray-500 w-8/12 h-8 bg-gray-100 rounded-lg text-gray-700 flex justify-center items-center m-auto">
+          <button
+            className="hover:text-gray-500 w-8/12 h-8 bg-gray-100 rounded-lg text-gray-700 flex justify-center items-center m-auto"
+            onClick={handleClick}
+          >
             Sponsor my channel
           </button>
         </ul>
