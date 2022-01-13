@@ -132,8 +132,9 @@ export default function Example() {
                 </h2>
                 <p className="text-base text-gray-500">
                   Our DAO makes it easy for potential investors to participate
-                  in our community or investors. Our investor members can find
-                  real-time report on daily transactions made via the Dashboard.
+                  various levels of ownership along with our community or
+                  investors. Investor members can find real-time report on daily
+                  transactions made via the Dashboard.
                 </p>
                 <div className="mt-6">
                   <a
