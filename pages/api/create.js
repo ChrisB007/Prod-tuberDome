@@ -1,12 +1,12 @@
-import { prisma } from '.prisma/client';
+//import { prisma } from '.prisma/client';
 
-const prisma = new PrismaClient();
+//const prisma = new PrismaClient();
 
-const createUser = async (req, res) => {
-  try {
-    const { user } = req.body;
-    const databaseUser = await prisma.user.create({});
-  } catch (error) {}
-};
+//const createUser = async (req, res) => {
+//  try {
+//    const { user } = req.body;
+//    const databaseUser = await prisma.user.create({});
+//  } catch (error) {}
+//};
 
-export default create;
+//export default create;
