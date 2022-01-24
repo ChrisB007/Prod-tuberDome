@@ -7,7 +7,7 @@ import Dashboard from './protected';
 import Search from '../components/Search';
 import finalData from '../components/channelList';
 
-export default function Home({ session }) {
+export default function Home({ session, finalData }) {
   console.log(session);
   return (
     <>
@@ -86,14 +86,14 @@ export async function getServerSideProps({ req, res }, context) {
 
   const session = await getSession({ req });
 
-  if (!session) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
+  //  if (!session) {
+  //    return {
+  //      redirect: {
+  //        destination: `${baseUrl}`,
+  //        permanent: false,
+  //      },
+  //    };
+  //  }
 
   const initialData = await fetch(`${baseUrl}/api/channels`, {
     method: 'GET',
@@ -110,6 +110,7 @@ export async function getServerSideProps({ req, res }, context) {
   //Return data
   return {
     props: {
+      finalData,
       session,
     },
   };
