@@ -3,42 +3,42 @@ import {
   CurrencyDollarIcon,
   ChatAltIcon,
   ChartBarIcon,
-} from "@heroicons/react/outline";
-import { useRouter } from "next/router";
+} from '@heroicons/react/outline';
+import { useRouter } from 'next/router';
 
 const features = [
   {
-    name: "Clear Communication",
+    name: 'Clear Communication',
     icon: ChatAltIcon,
     description:
-      "When it comes to getting the word out, communication is king. We provide easy process for you to onboard and educate the sponsored party about your brand, products and services.",
+      'When it comes to getting the word out, communication is king. We provide easy process for you to onboard and educate the sponsored party about your brand, products and services.',
   },
   {
-    name: "Budgeting",
+    name: 'Budgeting',
     icon: CurrencyDollarIcon,
     description:
-      "Search and browse through channels in categories that aligns with your brand, view their rates per subscriber and/or begin negotiations by proposing your own budget.",
+      'Search and browse through channels in categories that aligns with your brand, view their rates per subscriber and/or begin negotiations by proposing your own budget.',
   },
   {
-    name: "Launch",
+    name: 'Launch',
     icon: CalendarIcon,
     description:
-      "Plan and coordinate campaign / messaging with sponsored party, and set campaign launch date accordingly with useful tools.",
+      'Plan and coordinate campaign / messaging with sponsored party, and set campaign launch date accordingly with useful tools.',
   },
   {
-    name: "Measurable Success",
+    name: 'Measurable Success',
     icon: ChartBarIcon,
     description:
-      "Monitor and measure success rate through clicks and user engagement via dashboard.",
+      'Monitor and measure success rate through clicks and user engagement via dashboard.',
   },
 ];
 const checklist = [
-  "1",
-  "2",
-  "3",
-  "Search Creators by categories",
-  "Find and Onboard Creators",
-  "Propose budget & Launch",
+  '1',
+  '2',
+  '3',
+  'Search Creators by categories',
+  'Find and Onboard Creators',
+  'Propose budget & Launch',
 ];
 
 function sponsors() {
@@ -46,7 +46,7 @@ function sponsors() {
 
   const handleClick = (e) => {
     e.preventDefault();
-    router.push("/api/auth/signin");
+    router.push('/api/auth/signin');
   };
 
   return (

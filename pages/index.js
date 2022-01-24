@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useSession } from 'next-auth/client';
+import { getSession } from 'next-auth/client';
 import Jumbotron from '../components/Hero';
 import CreatorsList from '../components/CreatorsProfile';
 import TuberOne from '../components/TuberOne';
@@ -7,9 +7,7 @@ import Dashboard from './protected';
 import Search from '../components/Search';
 import finalData from '../components/channelList';
 
-export default function Home() {
-  const [session, loading] = useSession();
-
+export default function Home({ session }) {
   return (
     <>
       <Head>
@@ -81,9 +79,22 @@ export default function Home() {
   );
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps({ req, res }, context) {
   //Base Url
   const baseUrl = 'https://www.tuberdome.com';
+
+  const session = await getSession({ req });
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: `${baseUrl}`,
+        permanent: false,
+      },
+    };
+  }
+
+  console.log(session);
 
   const initialData = await fetch(`${baseUrl}/api/channels`, {
     method: 'GET',
@@ -96,12 +107,11 @@ export async function getStaticProps(context) {
   });
 
   const finalData = await initialData.json();
-  console.log(finalData);
 
   //Return data
   return {
     props: {
-      finalData,
+      session,
     },
   };
 }
