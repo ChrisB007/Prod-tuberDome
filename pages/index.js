@@ -1,11 +1,11 @@
-import Head from "next/head";
-import { useSession } from "next-auth/client";
-import Jumbotron from "../components/Hero";
-import CreatorsList from "../components/CreatorsProfile";
-import TuberOne from "../components/TuberOne";
-import Dashboard from "./protected";
-import Search from "../components/Search";
-import finalData from "../components/channelList";
+import Head from 'next/head';
+import { useSession } from 'next-auth/client';
+import Jumbotron from '../components/Hero';
+import CreatorsList from '../components/CreatorsProfile';
+import TuberOne from '../components/TuberOne';
+import Dashboard from './protected';
+import Search from '../components/Search';
+import finalData from '../components/channelList';
 
 export default function Home() {
   const [session, loading] = useSession();
@@ -81,28 +81,27 @@ export default function Home() {
   );
 }
 
-// export async function getStaticProps(context) {
-//   //Base Url
+export async function getStaticProps(context) {
+  //Base Url
+  const baseUrl = 'https://www.tuberdome.com';
 
-//   const baseUrl = "https://www.tuberdome.com";
+  const initialData = await fetch(`${baseUrl}/api/channels`, {
+    method: 'GET',
+    headers: {
+      // update with your user-agent
+      'User-Agent':
+        'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36',
+      Accept: 'application/json; charset=UTF-8',
+    },
+  });
 
-//   const initialData = await fetch(`${baseUrl}/api/channels`, {
-//     method: "GET",
-//     headers: {
-//       // update with your user-agent
-//       "User-Agent":
-//         "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36",
-//       Accept: "application/json; charset=UTF-8",
-//     },
-//   });
+  const finalData = await initialData.json();
+  console.log(finalData);
 
-//   const finalData = await initialData.json();
-//   console.log(finalData);
-
-//   //Return data
-//   return {
-//     props: {
-//       finalData,
-//     },
-//   };
-// }
+  //Return data
+  return {
+    props: {
+      finalData,
+    },
+  };
+}
