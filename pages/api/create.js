@@ -1,12 +1,11 @@
 import { prisma } from '.prisma/client';
-import { Prisma } from 'next-auth/adapters';
 
 const prisma = new PrismaClient();
 
 const createUser = async (req, res) => {
   try {
     const { user } = req.body;
-    const databaseUser = await Prisma.user.create({});
+    const databaseUser = await prisma.user.create({});
   } catch (error) {}
 };
 
