@@ -5,7 +5,6 @@ import CreatorsList from '../components/CreatorsProfile';
 import TuberOne from '../components/TuberOne';
 import Dashboard from './protected';
 import Search from '../components/Search';
-import finalData from '../components/channelList';
 
 export default function Home({ session, finalData }) {
   console.log(session);

@@ -65,7 +65,7 @@ export default function Navbar() {
             <div className="flex items-center md:ml-12">
               {!session && (
                 <Link
-                  href={`/api/auth/signin`}
+                  href={`/login`}
                   className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700"
                   onClick={(e) => signIn()}
                 >
