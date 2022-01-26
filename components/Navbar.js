@@ -2,16 +2,14 @@
 import { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
-import { signIn, signOut, useSession } from 'next-auth/client';
+import { signIn, signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function Navbar() {
-  const [session, loading] = useSession();
-
+export default function Navbar({ session }) {
   return (
     <Popover className="relative bg-white">
       <div
@@ -26,7 +24,7 @@ export default function Navbar() {
               <img
                 className="h-8 w-auto sm:h-10"
                 src="/images/berdome.png"
-                alt=""
+                alt="logo"
               />
             </a>
           </div>
@@ -178,4 +176,23 @@ export default function Navbar() {
       </Transition>
     </Popover>
   );
+}
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  //  if (!session) {
+  //    return {
+  //      redirect: {
+  //        destination: '/',
+  //        permanent: false,
+  //      },
+  //    };
+  //  }
+
+  return {
+    props: {
+      session,
+    },
+  };
 }

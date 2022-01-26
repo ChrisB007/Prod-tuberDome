@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Fragment } from 'react';
-import { getSession, useSession } from 'next-auth/client';
+import { getSession, useSession } from 'next-auth/react';
 import { Dialog, Transition } from '@headlessui/react';
 import {
   CalendarIcon,

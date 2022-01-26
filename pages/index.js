@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { getSession } from 'next-auth/client';
+import { getSession } from 'next-auth/react';
 import Jumbotron from '../components/Hero';
 import CreatorsList from '../components/CreatorsProfile';
 import TuberOne from '../components/TuberOne';
