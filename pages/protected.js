@@ -622,8 +622,8 @@ export default function Page({ session }) {
   );
 }
 
-export async function getServerSideProps(context) {
-  const session = await getSession(context);
+export async function getServerSideProps({ req, res }) {
+  const session = await getSession({ req });
 
   if (!session) {
     return {
@@ -633,7 +633,6 @@ export async function getServerSideProps(context) {
       },
     };
   }
-  console.log(session);
 
   return {
     props: {

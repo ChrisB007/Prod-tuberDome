@@ -1,4 +1,17 @@
+import React, { FC, useState, useEffect } from 'react';
+import {
+  useSession,
+  getProviders,
+  signOut,
+  signIn,
+  ClientSafeProvider,
+  LiteralUnion,
+} from 'next-auth/react';
+
 export default function Login() {
+  //  const [session, loading] = useSession();
+  const [providers, setProviders] = useState([]);
+
   return (
     <>
       <div className="min-h-full flex">
@@ -14,7 +27,7 @@ export default function Login() {
               <div>
                 <div>
                   <p className="text-sm font-medium text-gray-700">
-                    Login / Sign up with:
+                    As Creator
                   </p>
 
                   <div className="mt-1 grid grid-cols-3 gap-3">
@@ -24,7 +37,7 @@ export default function Login() {
                         className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
                       >
                         <span className="sr-only">
-                          Login / Sign up with Facebook
+                          Login / Sign up with Google
                         </span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +71,7 @@ export default function Login() {
                         className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
                       >
                         <span className="sr-only">
-                          Login / Sign up with Twitter
+                          Login / Sign up with Twitch
                         </span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +111,7 @@ export default function Login() {
                         className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
                       >
                         <span className="sr-only">
-                          Login / Sign up with GitHub
+                          Login / Sign up with Facebook
                         </span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -140,7 +153,7 @@ export default function Login() {
                   </div>
                   <div className="relative flex justify-center text-sm">
                     <span className="px-2 bg-white text-gray-500">
-                      Or continue with
+                      Or proceed below as Sponsor
                     </span>
                   </div>
                 </div>
@@ -159,56 +172,12 @@ export default function Login() {
                       <input
                         id="email"
                         name="email"
+                        placeholder="Get login link sent to your email"
                         type="email"
                         autoComplete="email"
                         required
                         className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       />
-                    </div>
-                  </div>
-
-                  <div className="space-y-1">
-                    <label
-                      htmlFor="password"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      Password
-                    </label>
-                    <div className="mt-1">
-                      <input
-                        id="password"
-                        name="password"
-                        type="password"
-                        autoComplete="current-password"
-                        required
-                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center">
-                      <input
-                        id="remember-me"
-                        name="remember-me"
-                        type="checkbox"
-                        className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-                      />
-                      <label
-                        htmlFor="remember-me"
-                        className="ml-2 block text-sm text-gray-900"
-                      >
-                        Remember me
-                      </label>
-                    </div>
-
-                    <div className="text-sm">
-                      <a
-                        href="#"
-                        className="font-medium text-indigo-600 hover:text-indigo-500"
-                      >
-                        Forgot your password?
-                      </a>
                     </div>
                   </div>
 

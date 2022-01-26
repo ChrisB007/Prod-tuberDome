@@ -79,20 +79,11 @@ export default function Home({ session, finalData }) {
   );
 }
 
-export async function getServerSideProps({ req, res }, context) {
+export async function getServerSideProps(context) {
   //Base Url
   const baseUrl = 'https://www.tuberdome.com';
 
-  const session = await getSession({ req });
-
-  //  if (!session) {
-  //    return {
-  //      redirect: {
-  //        destination: `${baseUrl}`,
-  //        permanent: false,
-  //      },
-  //    };
-  //  }
+  const session = await getSession(context);
 
   const initialData = await fetch(`${baseUrl}/api/channels`, {
     method: 'GET',
@@ -104,7 +95,6 @@ export async function getServerSideProps({ req, res }, context) {
   });
 
   const finalData = await initialData.json();
-  console.log(session);
 
   //Return data
   return {

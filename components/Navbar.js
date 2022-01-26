@@ -2,7 +2,7 @@
 import { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
-import { signIn, signOut, useSession } from 'next-auth/react';
+import { signIn, signOut, getSession } from 'next-auth/react';
 import Link from 'next/link';
 
 function classNames(...classes) {
@@ -178,17 +178,18 @@ export default function Navbar({ session }) {
   );
 }
 
-export async function getServerSideProps(context) {
-  const session = await getSession(context);
+export async function getServerSideProps({ req, res }) {
+  const session = await getSession({ req });
 
-  //  if (!session) {
-  //    return {
-  //      redirect: {
-  //        destination: '/',
-  //        permanent: false,
-  //      },
-  //    };
-  //  }
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+  console.log('Sess', session);
 
   return {
     props: {
