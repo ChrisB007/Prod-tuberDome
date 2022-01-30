@@ -1,10 +1,11 @@
-import Head from 'next/head';
-import { getSession } from 'next-auth/react';
-import Jumbotron from '../components/Hero';
-import CreatorsList from '../components/CreatorsProfile';
-import TuberOne from '../components/TuberOne';
-import Dashboard from './protected';
-import Search from '../components/Search';
+import Head from "next/head";
+import { getSession } from "next-auth/react";
+
+import CreatorsList from "../components/CreatorsProfile";
+import Jumbotron from "../components/Hero";
+import Search from "../components/Search";
+import TuberOne from "../components/TuberOne";
+import Dashboard from "./protected";
 
 export default function Home({ session, finalData }) {
   console.log(session);
@@ -31,8 +32,8 @@ export default function Home({ session, finalData }) {
                   </p>
                 </div>
               </div>
-              <div className="center-grid grid m-auto grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 relative overflow-scroll scrollbar-hide p-3 -ml-3 w-full sm:w-4/5 md:w-4/5 lg:w-4/5">
-                {finalData?.slice(0, 4)?.map((data) => (
+              <div className="center-grid grid m-auto grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 relative overflow-scroll scrollbar-hide p-3 -ml-3 w-full sm:w-4/5 md:w-4/5 lg:w-4/5">
+                {finalData?.slice(0, 3)?.map((data) => (
                   <div key={data?.name} className="m-auto w-11/12">
                     <div className="pt-5 ">
                       <CreatorsList
@@ -49,7 +50,7 @@ export default function Home({ session, finalData }) {
                 ))}
               </div>
               <TuberOne />
-              <div className="center-grid grid m-auto grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 relative overflow-scroll scrollbar-hide p-3 -ml-3 w-full sm:w-4/5 md:w-4/5 lg:w-4/5">
+              <div className="center-grid grid m-auto grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 relative overflow-scroll scrollbar-hide p-3 -ml-3 w-full sm:w-4/5 md:w-4/5 lg:w-4/5">
                 {finalData?.slice(5, 17)?.map((data) => (
                   <div key={data?.name} className="m-auto w-11/12">
                     <div className="pt-5 ">
@@ -81,16 +82,16 @@ export default function Home({ session, finalData }) {
 
 export async function getServerSideProps(context) {
   //Base Url
-  const baseUrl = 'https://www.tuberdome.com';
+  const baseUrl = "https://www.tuberdome.com";
 
   const session = await getSession(context);
 
   const initialData = await fetch(`${baseUrl}/api/channels`, {
-    method: 'GET',
+    method: "GET",
     headers: {
-      'User-Agent':
-        'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36',
-      Accept: 'application/json; charset=UTF-8',
+      "User-Agent":
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36",
+      Accept: "application/json; charset=UTF-8",
     },
   });
 
