@@ -1,20 +1,19 @@
-import React, { FC, useState, useEffect } from "react";
-import {
-  useSession,
-  getProviders,
-  signOut,
-  signIn,
-  ClientSafeProvider,
-  LiteralUnion,
-} from "next-auth/react";
 import { BuiltInProviderType } from "next-auth/providers";
+import {
+  ClientSafeProvider,
+  getProviders,
+  LiteralUnion,
+  signIn,
+  //  useSession,
+} from "next-auth/react";
+import React, { FC, useEffect, useState } from "react";
 
 const Login: FC = () => {
   const [providers, setproviders] = useState<Record<
     LiteralUnion<BuiltInProviderType, string>,
     ClientSafeProvider
   > | null>();
-  const { data: session, status } = useSession();
+  //  const { data: session, status } = useSession();
 
   useEffect(() => {
     const setTheProviders = async () => {
@@ -23,6 +22,8 @@ const Login: FC = () => {
     };
     setTheProviders();
   }, []);
+
+  console.log(providers);
 
   return (
     <>
@@ -36,12 +37,12 @@ const Login: FC = () => {
             <div className="mt-8">
               <div>
                 <div>
-                  <p className="text-sm font-medium text-gray-700">As Creator</p>
+                  <p className="text-sm font-medium text-gray-700">As Creator with:</p>
 
-                  <div className="mt-1 grid grid-cols-3 gap-3">
+                  <div className="mt-1 grid grid-cols-2 gap-3">
                     <div>
-                      <a
-                        href="#"
+                      <button
+                        onClick={() => signIn(providers?.google.id)}
                         className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
                         <span className="sr-only">Login / Sign up with Google</span>
                         <svg
@@ -66,13 +67,11 @@ const Login: FC = () => {
                             d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
                           />
                         </svg>
-                      </a>
+                      </button>
                     </div>
 
                     <div>
-                      <a
-                        href="#"
-                        className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                      <button className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
                         <span className="sr-only">Login / Sign up with Twitch</span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -90,41 +89,36 @@ const Login: FC = () => {
                           <rect width="3" height="10" x="21" y="16" fill="#7e57c2" />
                           <rect width="3" height="10" x="30" y="16" fill="#7e57c2" />
                         </svg>
-                      </a>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <form className="space-y-6" action="#" method="POST">
+                    <div className=" mt-5">
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                        Or via email address associated with your account
+                      </label>
+                      <div className="mt-1">
+                        <input
+                          id="email"
+                          name="email"
+                          type="email"
+                          autoComplete="email"
+                          required
+                          className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
+                        />
+                      </div>
                     </div>
 
                     <div>
-                      <a
-                        href="#"
-                        className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-                        <span className="sr-only">Login / Sign up with Facebook</span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 48 48"
-                          width="22px"
-                          height="22px">
-                          <linearGradient
-                            id="Ld6sqrtcxMyckEl6xeDdMa"
-                            x1="9.993"
-                            x2="40.615"
-                            y1="9.993"
-                            y2="40.615"
-                            gradientUnits="userSpaceOnUse">
-                            <stop offset="0" stop-color="#2aa4f4" />
-                            <stop offset="1" stop-color="#007ad9" />
-                          </linearGradient>
-                          <path
-                            fill="url(#Ld6sqrtcxMyckEl6xeDdMa)"
-                            d="M24,4C12.954,4,4,12.954,4,24s8.954,20,20,20s20-8.954,20-20S35.046,4,24,4z"
-                          />
-                          <path
-                            fill="#fff"
-                            d="M26.707,29.301h5.176l0.813-5.258h-5.989v-2.874c0-2.184,0.714-4.121,2.757-4.121h3.283V12.46 c-0.577-0.078-1.797-0.248-4.102-0.248c-4.814,0-7.636,2.542-7.636,8.334v3.498H16.06v5.258h4.948v14.452 C21.988,43.9,22.981,44,24,44c0.921,0,1.82-0.084,2.707-0.204V29.301z"
-                          />
-                        </svg>
-                      </a>
+                      <button
+                        type="submit"
+                        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                        Sign in
+                      </button>
                     </div>
-                  </div>
+                  </form>
                 </div>
 
                 <div className="mt-6 relative">
@@ -153,7 +147,7 @@ const Login: FC = () => {
                         type="email"
                         autoComplete="email"
                         required
-                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
                       />
                     </div>
                   </div>
@@ -161,7 +155,8 @@ const Login: FC = () => {
                   <div>
                     <button
                       type="submit"
-                      className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                      //    onClick={() => signIn(providers.email.id)}
+                      className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                       Login
                     </button>
                   </div>

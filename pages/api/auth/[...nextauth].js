@@ -1,10 +1,9 @@
-import NextAuth from 'next-auth';
-import GoogleProvider from 'next-auth/providers/google';
-import FacebookProvider from 'next-auth/providers/facebook';
-import TwitchProvider from 'next-auth/providers/twitch';
-import EmailProvider from 'next-auth/providers/email';
-import { PrismaAdapter } from '@next-auth/prisma-adapter';
-import { PrismaClient } from '@prisma/client';
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import { PrismaClient } from "@prisma/client";
+import NextAuth from "next-auth";
+import EmailProvider from "next-auth/providers/email";
+import GoogleProvider from "next-auth/providers/google";
+import TwitchProvider from "next-auth/providers/twitch";
 
 const prisma = new PrismaClient();
 
@@ -23,11 +22,6 @@ export default NextAuth({
       clientSecret: process.env.TWITCH_CLIENT_SECRET,
     }),
 
-    FacebookProvider({
-      clientId: process.env.FACEBOOK_ID,
-      clientSecret: process.env.FACEBOOK_SECRET,
-    }),
-
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
@@ -42,7 +36,7 @@ export default NextAuth({
     // Use JSON Web Tokens for session instead of database sessions.
     // This option can be used with or without a database for users/accounts.
     // Note: `strategy` should be set to 'jwt' if no database is used.
-    strategy: 'jwt',
+    strategy: "jwt",
 
     // Seconds - How long until an idle session expires and is no longer valid.
     // maxAge: 30 * 24 * 60 * 60, // 30 days
@@ -73,7 +67,7 @@ export default NextAuth({
     // signOut: '/auth/signout', // Displays form with sign out button
     // error: '/auth/error', // Error code passed in query string as ?error=
     // verifyRequest: '/auth/verify-request', // Used for check email page
-    newUser: '/newuser', // If set, new users will be directed here on first sign in
+    newUser: "/newuser", // If set, new users will be directed here on first sign in
   },
 
   // Callbacks are asynchronous functions you can use to control what happens
@@ -81,9 +75,9 @@ export default NextAuth({
   // https://next-auth.js.org/configuration/callbacks
   callbacks: {
     // async signIn({ user, account, profile, email, credentials }) { return true },
-    async redirect({ url, baseUrl }) {
-      return '/protected';
-    },
+    //    async redirect({ url, baseUrl }) {
+    //      return '/protected';
+    //    },
     // async session({ session, token, user }) { return session },
     // async jwt({ token, user, account, profile, isNewUser }) { return token }
   },
@@ -95,7 +89,7 @@ export default NextAuth({
   // You can set the theme to 'light', 'dark' or use 'auto' to default to the
   // whatever prefers-color-scheme is set to in the browser. Default is 'auto'
   theme: {
-    colorScheme: 'auto',
+    colorScheme: "auto",
   },
 
   // Enable debug messages in the console if you are having problems
