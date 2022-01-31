@@ -76,11 +76,11 @@ export default function Example() {
                 <div>
                   <p className="text-base text-gray-500">
                     There are countless creators on social media platforms with a ridiculous amount
-                    of followers. While these platforms monetize the users and their followers,
-                    these creators can and are looking for and accepting sponsorship opportunities.
-                    The issue is that the sponsors have to approach each creator individually, and
-                    don't quite have a way to track tractions, failures/successes on campaigns. That
-                    is where we come in.
+                    of followers. While these platforms monetize users and their followers through
+                    advertisements, these creators can accept, and are looking for sponsorship
+                    opportunities. One of the big issues is that the sponsors have to approach each
+                    one of these creators individually, and don't quite have a way to track
+                    tractions, failures/successes on campaigns. That is where we come in
                   </p>
                 </div>
                 <h2 className="text-2xl mt-4 font-extrabold text-gray-900">Our Mission</h2>

@@ -1,11 +1,10 @@
-import { SessionProvider } from 'next-auth/react';
-import './styles.css';
-import Layout from '../components/layout';
+import "./styles.css";
 
-export default function App({
-  Component,
-  pageProps: { session, ...pageProps },
-}) {
+import { SessionProvider } from "next-auth/react";
+
+import Layout from "../components/layout";
+
+export default function App({ Component, pageProps: { session, ...pageProps } }) {
   return (
     // `session` comes from `getServerSideProps` or `getInitialProps`.
     // Avoids flickering/session loading on first load.
