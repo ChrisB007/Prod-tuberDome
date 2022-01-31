@@ -8,7 +8,7 @@ import {
 } from "next-auth/react";
 import React, { FC, useEffect, useState } from "react";
 
-import Dashboard from "./protected";
+//import Dashboard from "./protected";
 
 const Login: FC = () => {
   const [providers, setproviders] = useState<Record<
@@ -179,11 +179,7 @@ const Login: FC = () => {
           </div>
         </div>
       )}
-      {session && (
-        <>
-          <Dashboard />
-        </>
-      )}
+      {session && <>{/*<Dashboard />*/}</>}
     </>
   );
 };
