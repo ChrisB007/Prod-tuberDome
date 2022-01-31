@@ -78,8 +78,8 @@ export default function Example() {
                     There are countless creators on social media platforms with a ridiculous amount
                     of followers. While these platforms monetize users and their followers through
                     advertisements, these creators can accept, and are looking for sponsorship
-                    opportunities. One of the big issues is that the sponsors have to approach each
-                    one of these creators individually, and don't quite have a way to track
+                    opportunities. One of the biggest issues is that the sponsors have to approach
+                    each one of these creators individually, and don't quite have a way to track
                     tractions, failures/successes on campaigns. That is where we come in
                   </p>
                 </div>
