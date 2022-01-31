@@ -1,12 +1,13 @@
 import { SortAscendingIcon, UsersIcon } from "@heroicons/react/solid";
+import { useReducer, useState } from "react";
 
-export default function Example() {
+export default function Search() {
+  const [search, setSearch] = useState("");
+  const [searchData, setSearchData] = useState([]);
+  //  const [state, dispatch] = useReducer(reducer, defaultState);
   return (
     <div>
-      <label
-        htmlFor="email"
-        className="block text-sm font-medium text-gray-700"
-      >
+      <label htmlFor="email" className="block text-sm font-medium text-gray-700">
         Search Creators
       </label>
       <div className="mt-1 flex rounded-md shadow-sm">
@@ -18,18 +19,15 @@ export default function Example() {
             type="text"
             name="email"
             id="email"
+            value={search}
             className="focus:ring-indigo-500 focus:border-indigo-500 block w-full rounded-none rounded-l-md pl-10 sm:text-sm border-gray-300"
             placeholder="John Doe"
           />
         </div>
         <button
           type="button"
-          className="-ml-px relative inline-flex items-center space-x-2 px-4 py-2 border border-gray-300 text-sm font-medium rounded-r-md text-gray-700 bg-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
-        >
-          <SortAscendingIcon
-            className="h-5 w-5 text-gray-400"
-            aria-hidden="true"
-          />
+          className="-ml-px relative inline-flex items-center space-x-2 px-4 py-2 border border-gray-300 text-sm font-medium rounded-r-md text-gray-700 bg-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500">
+          <SortAscendingIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
           <span>Sort</span>
         </button>
       </div>

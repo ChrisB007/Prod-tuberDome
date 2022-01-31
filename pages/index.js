@@ -8,7 +8,12 @@ import TuberOne from "../components/TuberOne";
 import Dashboard from "./protected";
 
 export default function Home({ session, finalData }) {
-  console.log(session);
+  if (session === undefined) {
+    console.log("session is undefined");
+  } else {
+    console.log(session);
+  }
+
   return (
     <>
       <Head>
@@ -84,8 +89,10 @@ export async function getServerSideProps(context) {
   //Base Url
   const baseUrl = "https://www.tuberdome.com";
 
+  //  getting session
   const session = await getSession(context);
 
+  //  fetching data
   const initialData = await fetch(`${baseUrl}/api/channels`, {
     method: "GET",
     headers: {

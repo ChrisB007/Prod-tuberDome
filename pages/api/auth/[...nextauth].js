@@ -15,6 +15,8 @@ export default NextAuth({
     EmailProvider({
       server: process.env.EMAIL_SERVER,
       from: process.env.EMAIL_FROM,
+      maxAge: 86400, // Credentials expire in 1 day
+      sendVerificationRequest: true,
     }),
 
     TwitchProvider({
@@ -67,7 +69,7 @@ export default NextAuth({
     // signOut: '/auth/signout', // Displays form with sign out button
     // error: '/auth/error', // Error code passed in query string as ?error=
     // verifyRequest: '/auth/verify-request', // Used for check email page
-    newUser: "/newuser", // If set, new users will be directed here on first sign in
+    //    newUser: "/newuser", If set, new users will be directed here on first sign in
   },
 
   // Callbacks are asynchronous functions you can use to control what happens
