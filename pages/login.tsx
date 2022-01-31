@@ -11,7 +11,7 @@ import React, { FC, useEffect, useState } from "react";
 //import Dashboard from "./protected";
 
 const Login: FC = () => {
-  const [providers, setproviders] = useState<Record<
+  const [providers, setProviders] = useState<Record<
     LiteralUnion<BuiltInProviderType, string>,
     ClientSafeProvider
   > | null>();
@@ -20,7 +20,7 @@ const Login: FC = () => {
   useEffect(() => {
     const setTheProviders = async () => {
       const setupProviders = await getProviders();
-      setproviders(setupProviders);
+      setProviders(setupProviders);
     };
     setTheProviders();
   }, []);
