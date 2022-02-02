@@ -1,9 +1,7 @@
-import { log } from "console";
 import { BuiltInProviderType } from "next-auth/providers";
 import {
   ClientSafeProvider,
   getProviders,
-  getSession,
   LiteralUnion,
   signIn,
   useSession,
@@ -12,12 +10,12 @@ import React, { FC, useEffect, useState } from "react";
 
 import Dashboard from "./protected";
 
-const Login: FC = ({ session }) => {
+const Login: FC = () => {
   const [providers, setProviders] = useState<Record<
     LiteralUnion<BuiltInProviderType, string>,
     ClientSafeProvider
   > | null>();
-  //  const { data: session } = useSession();
+  const { data: session } = useSession();
 
   useEffect(() => {
     const setTheProviders = async () => {
@@ -28,6 +26,7 @@ const Login: FC = ({ session }) => {
   }, []);
 
   if (session) {
+    console.log("session", session);
     return <Dashboard />;
   }
 
@@ -186,19 +185,5 @@ const Login: FC = ({ session }) => {
     </>
   );
 };
-
-export async function getServerSideProps(req, _res) {
-  //  getting session
-  const session = await getSession({ req });
-
-  //Return data
-  console.log(session);
-
-  return {
-    props: {
-      session,
-    },
-  };
-}
 
 export default Login;
