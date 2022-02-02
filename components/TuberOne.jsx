@@ -38,16 +38,14 @@ export default function Marketing() {
     <div className="py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:text-center">
-          <h2 className="text-base text-red-600 font-semibold tracking-wide uppercase">
-            Creators
-          </h2>
+          <h2 className="text-base text-red-600 font-semibold tracking-wide uppercase">Creators</h2>
           <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
             Here's a better way to manage sponsorships
           </p>
           <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-            Our services span across all facets of sponsorship for both sponsors
-            and creators. From planning, accomplishing tasks, and achieving
-            sponsorship goals. Our services include but are not limited to:
+            Our services span across all facets of sponsorship for both sponsors and creators. From
+            planning, accomplishing tasks, and achieving sponsorship goals. Our services include but
+            are not limited to:
           </p>
         </div>
 
@@ -63,9 +61,7 @@ export default function Marketing() {
                     {feature.name}
                   </p>
                 </dt>
-                <dd className="mt-2 ml-16 text-base text-gray-500">
-                  {feature.description}
-                </dd>
+                <dd className="mt-2 ml-16 text-base text-gray-500">{feature.description}</dd>
               </div>
             ))}
           </dl>

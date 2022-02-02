@@ -8,12 +8,6 @@ import TuberOne from "../components/TuberOne";
 import Dashboard from "./protected";
 
 export default function Home({ session, finalData }) {
-  if (session === undefined) {
-    console.log("session is undefined");
-  } else {
-    console.log(session);
-  }
-
   return (
     <>
       <Head>
@@ -37,7 +31,7 @@ export default function Home({ session, finalData }) {
                   </p>
                 </div>
               </div>
-              <div className="center-grid grid m-auto grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 relative overflow-scroll scrollbar-hide p-3 -ml-3 w-full sm:w-4/5 md:w-4/5 lg:w-4/5">
+              <div className="center-grid grid m-auto grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 relative scrollbar-hide p-3 -ml-3 w-full sm:w-4/5 md:w-4/5 lg:w-4/5">
                 {finalData?.slice(0, 3)?.map((data) => (
                   <div key={data?.name} className="m-auto w-11/12">
                     <div className="pt-5 ">
@@ -55,7 +49,7 @@ export default function Home({ session, finalData }) {
                 ))}
               </div>
               <TuberOne />
-              <div className="center-grid grid m-auto grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 relative overflow-scroll scrollbar-hide p-3 -ml-3 w-full sm:w-4/5 md:w-4/5 lg:w-4/5">
+              <div className="center-grid grid m-auto grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 relative scrollbar-hide p-3 -ml-3 w-full sm:w-4/5 md:w-4/5 lg:w-4/5">
                 {finalData?.slice(5, 17)?.map((data) => (
                   <div key={data?.name} className="m-auto w-11/12">
                     <div className="pt-5 ">
