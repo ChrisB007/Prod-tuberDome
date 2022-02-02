@@ -26,7 +26,7 @@ const Login: FC = () => {
   }, []);
 
   if (session) {
-    console.log("session", session);
+    console.log(session);
     return <Dashboard />;
   }
 
