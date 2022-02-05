@@ -1,35 +1,9 @@
-import { BuiltInProviderType } from "next-auth/providers";
-import {
-  ClientSafeProvider,
-  getProviders,
-  LiteralUnion,
-  signIn,
-  useSession,
-} from "next-auth/react";
-import React, { FC, useEffect, useState } from "react";
+import React, { useState } from "react";
 
-import Dashboard from "./protected";
+//import Dashboard from "./protected";
 
-const Login: FC = () => {
-  const [providers, setProviders] = useState<Record<
-    LiteralUnion<BuiltInProviderType, string>,
-    ClientSafeProvider
-  > | null>();
-  const { data: session } = useSession();
-
-  useEffect(() => {
-    const setTheProviders = async () => {
-      const setupProviders = await getProviders();
-      setProviders(setupProviders);
-    };
-    setTheProviders();
-  }, []);
-
-  if (session) {
-    console.log(session);
-    return <Dashboard />;
-  }
-
+const Login = () => {
+  const [email, setEmail] = useState("");
   return (
     <>
       <div className="min-h-full flex">
@@ -47,8 +21,8 @@ const Login: FC = () => {
                   <div className="mt-1 grid grid-cols-2 gap-3">
                     <div>
                       <button
-                        onClick={() => signIn(providers?.google.id)}
-                        className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                        className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                        onClick={""}>
                         <span className="sr-only">Login / Sign up with Google</span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +51,7 @@ const Login: FC = () => {
 
                     <div>
                       <button
-                        onClick={() => signIn(providers?.twitch.id)}
+                        onClick={""}
                         className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
                         <span className="sr-only">Login / Sign up with Twitch</span>
                         <svg
@@ -100,6 +74,7 @@ const Login: FC = () => {
                     </div>
                   </div>
                 </div>
+
                 <div>
                   <form className="space-y-6" action="#" method="POST">
                     <div className=" mt-5">
@@ -121,7 +96,7 @@ const Login: FC = () => {
 
                     <div>
                       <button
-                        onClick={() => signIn(providers?.email.id)}
+                        onClick={""}
                         type="submit"
                         className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                         Sign in
@@ -164,7 +139,7 @@ const Login: FC = () => {
                   <div>
                     <button
                       type="submit"
-                      onClick={() => signIn(providers?.email.id)}
+                      onClick={""}
                       className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                       Login
                     </button>

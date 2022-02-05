@@ -2,7 +2,7 @@
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import Link from "next/link";
-import { getSession, signIn, signOut } from "next-auth/react";
+//import { getSession, signIn, signOut } from "next-auth/react";
 import { Fragment } from "react";
 
 //function classNames(...classes) {
@@ -49,22 +49,18 @@ export default function Navbar({ session }) {
               </a>
             </Popover.Group>
             <div className="flex items-center md:ml-12">
-              {!session && (
-                <Link
-                  href={`/api/auth/signin`}
-                  className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700"
-                  onClick={() => signIn()}>
-                  <a>Sign In | Sign Up</a>
-                </Link>
-              )}
-              {session && (
-                <Link
-                  href={`/api/auth/signout`}
-                  className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700"
-                  onClick={() => signOut()}>
-                  <a>Sign Out</a>
-                </Link>
-              )}
+              <Link
+                href={"/login"}
+                className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700">
+                <a>Sign In | Sign Up</a>
+              </Link>
+
+              {/*<Link
+                href=""
+                className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700"
+                onClick={""}>
+                <a>Sign Out</a>
+              </Link>*/}
             </div>
           </div>
         </div>
@@ -126,8 +122,8 @@ export default function Navbar({ session }) {
               <div className="mt-6">
                 {!session && (
                   <Link
-                    href={`/api/auth/signin`}
-                    onClick={() => signIn()}
+                    href=""
+                    onClick=""
                     className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700">
                     <a>Sign In | Sign Up</a>
                   </Link>
@@ -135,10 +131,7 @@ export default function Navbar({ session }) {
                 {session && (
                   <p className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700">
                     Existing customer?{" "}
-                    <Link
-                      href={`/api/auth/signout`}
-                      onClick={() => signOut()}
-                      className="text-gray-600 hover:text-gray-500">
+                    <Link href="" onClick="" className="text-gray-600 hover:text-gray-500">
                       <a>Sign Out</a>
                     </Link>
                   </p>
@@ -152,22 +145,8 @@ export default function Navbar({ session }) {
   );
 }
 
-export async function getServerSideProps({ req }) {
-  const session = await getSession({ req });
-
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
-    };
-  }
-  console.log("Sess", session);
-
+export async function getServerSideProps() {
   return {
-    props: {
-      session,
-    },
+    props: {},
   };
 }

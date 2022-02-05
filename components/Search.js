@@ -1,9 +1,9 @@
 import { SortAscendingIcon, UsersIcon } from "@heroicons/react/solid";
-import { useReducer, useState } from "react";
+import { useState } from "react";
 
 export default function Search() {
   const [search, setSearch] = useState("");
-  const [searchData, setSearchData] = useState([]);
+  //  const [searchData, setSearchData] = useState([]);
   //  const [state, dispatch] = useReducer(reducer, defaultState);
   return (
     <div>
@@ -19,6 +19,7 @@ export default function Search() {
             type="text"
             name="email"
             id="email"
+            onChange={""}
             value={search}
             className="focus:ring-indigo-500 focus:border-indigo-500 block w-full rounded-none rounded-l-md pl-10 sm:text-sm border-gray-300"
             placeholder="John Doe"
