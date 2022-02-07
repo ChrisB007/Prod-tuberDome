@@ -81,7 +81,7 @@ export default function Home({ finalData, youtubeDataJson, creators }) {
   );
 }
 
-export async function getServerSideProps({ params }) {
+export async function getServerSideProps() {
   //Base Url
   const baseUrl = "https://www.tuberdome.com";
   const gBaseUrl = "https://www.googleapis.com/youtube/v3";
@@ -109,8 +109,6 @@ export async function getServerSideProps({ params }) {
   if (error) {
     throw new Error(error);
   }
-
-  console.log(supabase); //from pages/utils/supabaseClient.js for now
 
   //Return data
   return {
