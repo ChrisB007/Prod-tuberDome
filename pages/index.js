@@ -4,10 +4,13 @@ import CreatorsList from "../components/CreatorsProfile";
 import Jumbotron from "../components/Hero";
 import Search from "../components/Search";
 import TuberOne from "../components/TuberOne";
-//import Dashboard from "./protected";
+import supabase from "../utils/supabaseClient";
 
-export default function Home({ finalData, youtubeDataJson }) {
+export default function Home({ finalData, youtubeDataJson, creators }) {
   console.log("youtubeDataJson", youtubeDataJson);
+  console.log("creators", creators);
+  console.log(supabase.auth.user());
+
   return (
     <>
       <Head>
@@ -78,19 +81,18 @@ export default function Home({ finalData, youtubeDataJson }) {
   );
 }
 
-export async function getServerSideProps() {
-  //  getting session
-  //  const session = await getSession(context);
-
+export async function getServerSideProps({ params }) {
   //Base Url
   const baseUrl = "https://www.tuberdome.com";
   const gBaseUrl = "https://www.googleapis.com/youtube/v3";
-  const channelName = "ThePrimeagen";
+
+  const channelID = `UCX9T7yZNgOir2vSuWdhkpiQ`;
 
   //  fetching data
   const youtubeData = await fetch(
-    `${gBaseUrl}/channels?part=snippet&part=contentDetails&part=statistics&part=contentOwnerDetails&forUsername=${channelName}&maxResults=50&key=${process.env.YOUTUBE_API_KEY}`,
+    `${gBaseUrl}/channels?id=${channelID}&part=snippet,contentDetails,statistics,contentOwnerDetails&maxResults=50&key=${process.env.YOUTUBE_API_KEY}`,
   );
+
   const youtubeDataJson = await youtubeData.json();
 
   const initialData = await fetch(`${baseUrl}/api/channels`, {
@@ -101,14 +103,21 @@ export async function getServerSideProps() {
       Accept: "application/json; charset=UTF-8",
     },
   });
-
   const finalData = await initialData.json();
+
+  const { data: creators, error } = await supabase.from("creators").select("*");
+  if (error) {
+    throw new Error(error);
+  }
+
+  console.log(supabase); //from pages/utils/supabaseClient.js for now
 
   //Return data
   return {
     props: {
       finalData,
       youtubeDataJson,
+      creators,
     },
   };
 }

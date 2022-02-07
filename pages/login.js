@@ -1,9 +1,22 @@
-import React, { useState } from "react";
-
 //import Dashboard from "./protected";
+import supabase from "../utils/supabaseClient";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
+  const handleSubmit = async (e) => {
+    try {
+      e.preventDefault();
+
+      const email = e.target.email.value;
+      if (e.target.email.name === "creator-email") {
+        await supabase.auth.signIn({ email });
+      } else if (e.target.email.name === "sponsor-email") {
+        await supabase.auth.signIn({ email });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <div className="min-h-full flex">
@@ -21,6 +34,7 @@ const Login = () => {
                   <div className="mt-1 grid grid-cols-2 gap-3">
                     <div>
                       <button
+                        id="creator-google"
                         className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
                         onClick={""}>
                         <span className="sr-only">Login / Sign up with Google</span>
@@ -51,6 +65,7 @@ const Login = () => {
 
                     <div>
                       <button
+                        id="creator-twitch"
                         onClick={""}
                         className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
                         <span className="sr-only">Login / Sign up with Twitch</span>
@@ -76,7 +91,7 @@ const Login = () => {
                 </div>
 
                 <div>
-                  <form className="space-y-6" action="#" method="POST">
+                  <form onSubmit={handleSubmit} className="space-y-6" action="#" method="POST">
                     <div className=" mt-5">
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                         Or via email address associated with your account
@@ -84,7 +99,7 @@ const Login = () => {
                       <div className="mt-1">
                         <input
                           id="email"
-                          name="email"
+                          name="creator-email"
                           type="email"
                           placeholder="Get login link sent to your email"
                           autoComplete="email"
@@ -96,7 +111,6 @@ const Login = () => {
 
                     <div>
                       <button
-                        onClick={""}
                         type="submit"
                         className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                         Sign in
@@ -118,7 +132,7 @@ const Login = () => {
               </div>
 
               <div className="mt-6">
-                <form action="#" method="POST" className="space-y-6">
+                <form onSubmit={handleSubmit} action="#" method="POST" className="space-y-6">
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                       Email address
@@ -126,7 +140,7 @@ const Login = () => {
                     <div className="mt-1">
                       <input
                         id="email"
-                        name="email"
+                        name="sponsor-email"
                         placeholder="Get login link sent to your email"
                         type="email"
                         autoComplete="email"
@@ -139,7 +153,6 @@ const Login = () => {
                   <div>
                     <button
                       type="submit"
-                      onClick={""}
                       className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                       Login
                     </button>
