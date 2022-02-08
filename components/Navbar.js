@@ -72,7 +72,7 @@ export default function Navbar({ authenticated }) {
               </a>
             </Popover.Group>
             <div className="flex items-center md:ml-12">
-              {userAuthenticated.role !== "authenticated" ? (
+              {userAuthenticated.aud !== "authenticated" ? (
                 <Link
                   href={"/login"}
                   className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700">
@@ -140,7 +140,7 @@ export default function Navbar({ authenticated }) {
             </div>
             <div className="py-6 px-5">
               <div className="mt-6">
-                {userAuthenticated.role !== "authenticated" ? (
+                {userAuthenticated.aud !== "authenticated" ? (
                   <Link
                     href={"/login"}
                     className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700">
