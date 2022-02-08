@@ -79,11 +79,11 @@ export default function Navbar({ authenticated }) {
                   <a>Sign In | Sign Up</a>
                 </Link>
               ) : (
-                <Link
-                  href={signOut}
+                <button
+                  onClick={() => signOut()}
                   className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700">
                   Sign Out
-                </Link>
+                </button>
               )}
             </div>
           </div>
