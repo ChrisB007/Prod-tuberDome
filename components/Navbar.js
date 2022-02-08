@@ -28,7 +28,7 @@ export default function Navbar({ authenticated }) {
     router.push("/");
   }
 
-  console.log(authenticated);
+  console.log("user is:", userAuthenticated);
 
   return (
     <Popover className="fixed z-10 w-full bg-white">
@@ -69,14 +69,15 @@ export default function Navbar({ authenticated }) {
               </a>
             </Popover.Group>
             <div className="flex items-center md:ml-12">
-              {userAuthenticated && (
+              {userAuthenticated ? (
                 <Link
                   href={"/login"}
                   className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700">
                   <a>Sign In | Sign Up</a>
                 </Link>
+              ) : (
+                <button onClick={signOut}>Sign Out</button>
               )}
-              {!userAuthenticated && <button onClick={signOut}>Sign Out</button>}
             </div>
           </div>
         </div>
