@@ -10,8 +10,9 @@ import supabase from "../utils/supabaseClient";
 //  return classes.filter(Boolean).join(" ");
 //}
 
-export default function Navbar({ authenticated }) {
-  const [userAuthenticated, setUserAuthenticated] = useState(authenticated);
+export default function Navbar() {
+  //  const [userAuthenticated, setUserAuthenticated] = useState(authenticated);
+  const [profileDashboard, setProfileDashboard] = useState(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -20,7 +21,7 @@ export default function Navbar({ authenticated }) {
 
   async function fetchDashboard() {
     const profileData = await supabase.auth.user();
-    !profileData ? null : setUserAuthenticated(profileData);
+    !profileData ? null : setProfileDashboard(profileData);
   }
 
   async function signOut() {
@@ -28,7 +29,10 @@ export default function Navbar({ authenticated }) {
     router.push("/");
   }
 
-  console.log("user is:", userAuthenticated);
+  if (!profileDashboard) return null;
+
+  console.log("profile EMAIL", profileDashboard.email);
+  console.log("profile ID", profileDashboard.id);
 
   return (
     <Popover className="fixed z-10 w-full bg-white">
@@ -36,7 +40,7 @@ export default function Navbar({ authenticated }) {
       <div className="relative z-20">
         <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-10">
           <div>
-            <a href={userAuthenticated ? "/" : "/protected"} className="flex">
+            <a href={profileDashboard.id ? "/protected" : "/"} className="flex">
               <span className="sr-only">TuberDome</span>
               <img className="h-8 w-auto sm:h-10" src="/images/berdome.png" alt="logo" />
             </a>
@@ -69,7 +73,7 @@ export default function Navbar({ authenticated }) {
               </a>
             </Popover.Group>
             <div className="flex items-center md:ml-12">
-              {userAuthenticated ? (
+              {!profileDashboard.id ? (
                 <Link
                   href={"/login"}
                   className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700">
@@ -141,7 +145,7 @@ export default function Navbar({ authenticated }) {
             </div>
             <div className="py-6 px-5">
               <div className="mt-6">
-                {userAuthenticated ? (
+                {!profileDashboard.id ? (
                   <Link
                     href={"/login"}
                     className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700">
@@ -150,10 +154,6 @@ export default function Navbar({ authenticated }) {
                 ) : (
                   <button onClick={signOut}>Sign Out</button>
                 )}
-                {/*{userAuthenticated && (
-                  
-                )}
-                {!userAuthenticated && <button onClick={signOut}>Sign Out</button>}*/}
               </div>
             </div>
           </div>
