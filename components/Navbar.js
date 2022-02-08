@@ -28,6 +28,8 @@ export default function Navbar({ authenticated }) {
     router.push("/");
   }
 
+  console.log(authenticated);
+
   return (
     <Popover className="fixed z-10 w-full bg-white">
       <div className="absolute inset-0 shadow z-30 pointer-events-none" aria-hidden="true" />
@@ -74,7 +76,7 @@ export default function Navbar({ authenticated }) {
                   <a>Sign In | Sign Up</a>
                 </Link>
               )}
-              {!userAuthenticated && <button onClick={signOut}></button>}
+              {!userAuthenticated && <button onClick={signOut}>Sign Out</button>}
             </div>
           </div>
         </div>
@@ -141,7 +143,7 @@ export default function Navbar({ authenticated }) {
                     <a>Sign In | Sign Up</a>
                   </Link>
                 )}
-                {!userAuthenticated && <button onClick={signOut}></button>}
+                {!userAuthenticated && <button onClick={signOut}>Sign Out</button>}
               </div>
             </div>
           </div>
