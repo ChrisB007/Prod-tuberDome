@@ -79,11 +79,7 @@ export default function Navbar({ authenticated }) {
                   <a>Sign In | Sign Up</a>
                 </Link>
               ) : (
-                <button
-                  onClick={() => signOut()}
-                  className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700">
-                  Sign Out
-                </button>
+                <button onClick={() => signOut()}>Sign Out</button>
               )}
             </div>
           </div>
@@ -144,19 +140,15 @@ export default function Navbar({ authenticated }) {
             </div>
             <div className="py-6 px-5">
               <div className="mt-6">
-                {userAuthenticated ? (
+                {userAuthenticated.role !== "authenticated" ? (
                   <Link
                     href={"/login"}
                     className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700">
                     <a>Sign In | Sign Up</a>
                   </Link>
                 ) : (
-                  <button onClick={signOut}>Sign Out</button>
+                  <button onClick={() => signOut()}>Sign Out</button>
                 )}
-                {/*{userAuthenticated && (
-                  
-                )}
-                {!userAuthenticated && <button onClick={signOut}>Sign Out</button>}*/}
               </div>
             </div>
           </div>
