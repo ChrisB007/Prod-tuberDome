@@ -21,6 +21,7 @@ import { Fragment, useEffect, useState } from "react";
 
 import Dashnav from "../components/Dashnav";
 import supabase from "../utils/supabaseClient";
+
 //import PopUp from "../components/Popup";
 
 //const navigation = [
@@ -121,7 +122,8 @@ const team = [
 //  return classes.filter(Boolean).join(" ");
 //}
 
-export default function Page() {
+export default function Page({ user }) {
+  console.log(user);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   let [isOpen, setIsOpen] = useState(false);
   const [profileDashboard, setProfileDashboard] = useState(null);
@@ -539,4 +541,17 @@ export default function Page() {
       </div>
     </div>
   );
+}
+
+export async function getServerSideProps({ req }) {
+  const { user } = await supabase.auth.api.getUserByCookie(req);
+
+  if (!user) {
+    return {
+      props: {},
+      redirect: { destination: "/login" },
+    };
+  }
+
+  return { props: { user } };
 }

@@ -20,7 +20,7 @@ export default function Navbar({ authenticated }) {
 
   async function fetchDashboard() {
     const profileData = await supabase.auth.user();
-    !profileData ? router.push("/") : setUserAuthenticated(profileData);
+    !profileData ? null : setUserAuthenticated(profileData);
   }
 
   async function signOut() {
@@ -34,7 +34,7 @@ export default function Navbar({ authenticated }) {
       <div className="relative z-20">
         <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-10">
           <div>
-            <a href={userAuthenticated ? "/protected" : "/"} className="flex">
+            <a href={!userAuthenticated ? "/protected" : "/"} className="flex">
               <span className="sr-only">TuberDome</span>
               <img className="h-8 w-auto sm:h-10" src="/images/berdome.png" alt="logo" />
             </a>

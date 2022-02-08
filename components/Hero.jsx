@@ -3,17 +3,13 @@ import Image from "next/image";
 export default function Jumbotron() {
   return (
     <div className="relative bg-gradient-to-r from-white via-gray-200 to-gray-500 shadow overflow-hidden">
-      <div
-        className="hidden lg:block lg:absolute lg:inset-0"
-        aria-hidden="true"
-      >
+      <div className="hidden lg:block lg:absolute lg:inset-0" aria-hidden="true">
         <svg
           className="absolute top-0 left-1/2 transform translate-x-64 -translate-y-8"
           width={640}
           height={784}
           fill="none"
-          viewBox="0 0 640 784"
-        >
+          viewBox="0 0 640 784">
           <defs>
             <pattern
               id="9ebea6f4-a1f5-4d96-8c4e-4c2abf658047"
@@ -21,8 +17,7 @@ export default function Jumbotron() {
               y={0}
               width={20}
               height={20}
-              patternUnits="userSpaceOnUse"
-            >
+              patternUnits="userSpaceOnUse">
               <rect
                 x={0}
                 y={0}
@@ -60,13 +55,11 @@ export default function Jumbotron() {
                 </span>
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-                There are thousands of talented creators making great videos
-                every week for millions to view, and we present those with at
-                least <span className="boldtxt">300,000 subscribers</span> each
-                spanning across{" "}
-                <span className="boldtxt">multiple categories</span> that align
-                with your brand. Sponsor their efforts today and reach more
-                people through their videos.
+                There are thousands of talented creators making great videos every week for millions
+                to view, and we present those with at least{" "}
+                <span className="boldtxt">300,000 subscribers</span> each spanning across{" "}
+                <span className="boldtxt">multiple categories</span> that align with your brand.
+                Sponsor their efforts today and reach more people through their videos.
               </p>
             </div>
             <div className="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
@@ -76,8 +69,7 @@ export default function Jumbotron() {
                 height={784}
                 fill="none"
                 viewBox="0 0 640 784"
-                aria-hidden="true"
-              >
+                aria-hidden="true">
                 <defs>
                   <pattern
                     id="4f4f415c-a0e9-44c2-9601-6ded5a34a13e"
@@ -85,8 +77,7 @@ export default function Jumbotron() {
                     y={0}
                     width={20}
                     height={20}
-                    patternUnits="userSpaceOnUse"
-                  >
+                    patternUnits="userSpaceOnUse">
                     <rect
                       x={0}
                       y={0}
@@ -114,8 +105,7 @@ export default function Jumbotron() {
               <div className="relative image-div mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
                 <button
                   type="button"
-                  className="relative block w-full bg-gray-700 rounded-lg overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
+                  className="relative block w-full bg-gray-700 rounded-lg overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                   <span className="sr-only">Watch our video to learn more</span>
                   <Image
                     className="hero-image absolute inset-0 w-full h-full flex items-center justify-center"
@@ -126,20 +116,12 @@ export default function Jumbotron() {
                   />
                   <div
                     className="absolute inset-0 w-full h-full flex items-center justify-center"
-                    aria-hidden="true"
-                  >
+                    aria-hidden="true">
                     <svg
                       className="h-20 w-20 text-indigo-500"
                       fill="currentColor"
-                      viewBox="0 0 84 84"
-                    >
-                      <circle
-                        opacity="0.9"
-                        cx={42}
-                        cy={42}
-                        r={42}
-                        fill="white"
-                      />
+                      viewBox="0 0 84 84">
+                      <circle opacity="0.9" cx={42} cy={42} r={42} fill="white" />
                       <path d="M55.5039 40.3359L37.1094 28.0729C35.7803 27.1869 34 28.1396 34 29.737V54.263C34 55.8604 35.7803 56.8131 37.1094 55.9271L55.5038 43.6641C56.6913 42.8725 56.6913 41.1275 55.5039 40.3359Z" />
                     </svg>
                   </div>
