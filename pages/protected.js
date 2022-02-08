@@ -16,9 +16,11 @@ import {
   PhoneIcon,
   SearchIcon,
 } from "@heroicons/react/solid";
-import { Fragment, useState } from "react";
+import { useRouter } from "next/router";
+import { Fragment, useEffect, useState } from "react";
 
 import Dashnav from "../components/Dashnav";
+import supabase from "../utils/supabaseClient";
 //import PopUp from "../components/Popup";
 
 //const navigation = [
@@ -121,10 +123,18 @@ const team = [
 
 export default function Page() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
   let [isOpen, setIsOpen] = useState(false);
+  const [profileDashboard, setProfileDashboard] = useState(null);
+  const router = useRouter();
 
-  //  const [content, setContent] = useState();
+  useEffect(() => {
+    fetchDashboard();
+  }, []);
+
+  async function fetchDashboard() {
+    const profileData = await supabase.auth.user();
+    !profileData ? router.push("/") : setProfileDashboard(profileData);
+  }
 
   function closeModal() {
     setIsOpen(false);
@@ -134,10 +144,10 @@ export default function Page() {
     setIsOpen(true);
   }
 
-  // When rendering client side don't display anything until loading is complete
-  if (typeof window !== "undefined") return null;
+  if (!profileDashboard) return null;
 
-  // If session exists, display content
+  console.log(profileDashboard.email);
+  console.log(profileDashboard.id);
   return (
     <div className="relative h-screen flex overflow-hidden bg-white">
       <Transition.Root show={sidebarOpen} as={Fragment}>
@@ -529,10 +539,4 @@ export default function Page() {
       </div>
     </div>
   );
-}
-
-export async function getServerSideProps() {
-  return {
-    props: {},
-  };
 }

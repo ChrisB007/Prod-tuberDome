@@ -1,22 +1,40 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import Link from "next/link";
-//import { getSession, signIn, signOut } from "next-auth/react";
-import { Fragment } from "react";
+import { useRouter } from "next/router";
+import { Fragment, useEffect, useState } from "react";
+
+import supabase from "../utils/supabaseClient";
 
 //function classNames(...classes) {
 //  return classes.filter(Boolean).join(" ");
 //}
 
-export default function Navbar({ session }) {
+export default function Navbar({ authenticated }) {
+  const [userAuthenticated, setUserAuthenticated] = useState(authenticated);
+  const router = useRouter();
+
+  useEffect(() => {
+    fetchDashboard();
+  }, []);
+
+  async function fetchDashboard() {
+    const profileData = await supabase.auth.user();
+    !profileData ? router.push("/") : setUserAuthenticated(profileData);
+  }
+
+  async function signOut() {
+    await supabase.auth.signOut();
+    router.push("/");
+  }
+
   return (
     <Popover className="fixed z-10 w-full bg-white">
       <div className="absolute inset-0 shadow z-30 pointer-events-none" aria-hidden="true" />
       <div className="relative z-20">
         <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-10">
           <div>
-            <a href={session ? "/protected" : "/"} className="flex">
+            <a href={userAuthenticated ? "/protected" : "/"} className="flex">
               <span className="sr-only">TuberDome</span>
               <img className="h-8 w-auto sm:h-10" src="/images/berdome.png" alt="logo" />
             </a>
@@ -49,18 +67,14 @@ export default function Navbar({ session }) {
               </a>
             </Popover.Group>
             <div className="flex items-center md:ml-12">
-              <Link
-                href={"/login"}
-                className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700">
-                <a>Sign In | Sign Up</a>
-              </Link>
-
-              {/*<Link
-                href=""
-                className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700"
-                onClick={""}>
-                <a>Sign Out</a>
-              </Link>*/}
+              {userAuthenticated && (
+                <Link
+                  href={"/login"}
+                  className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700">
+                  <a>Sign In | Sign Up</a>
+                </Link>
+              )}
+              {!userAuthenticated && <button onClick={signOut}></button>}
             </div>
           </div>
         </div>
@@ -120,22 +134,14 @@ export default function Navbar({ session }) {
             </div>
             <div className="py-6 px-5">
               <div className="mt-6">
-                {!session && (
+                {userAuthenticated && (
                   <Link
-                    href=""
-                    onClick=""
-                    className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700">
+                    href={"/login"}
+                    className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700">
                     <a>Sign In | Sign Up</a>
                   </Link>
                 )}
-                {session && (
-                  <p className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700">
-                    Existing customer?{" "}
-                    <Link href="" onClick="" className="text-gray-600 hover:text-gray-500">
-                      <a>Sign Out</a>
-                    </Link>
-                  </p>
-                )}
+                {!userAuthenticated && <button onClick={signOut}></button>}
               </div>
             </div>
           </div>
@@ -143,10 +149,4 @@ export default function Navbar({ session }) {
       </Transition>
     </Popover>
   );
-}
-
-export async function getServerSideProps() {
-  return {
-    props: {},
-  };
 }

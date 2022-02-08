@@ -6,10 +6,8 @@ import Search from "../components/Search";
 import TuberOne from "../components/TuberOne";
 import supabase from "../utils/supabaseClient";
 
-export default function Home({ finalData, youtubeDataJson, creators }) {
+export default function Home({ finalData, youtubeDataJson }) {
   console.log("youtubeDataJson", youtubeDataJson);
-  console.log("creators", creators);
-  console.log(supabase.auth.user());
 
   return (
     <>

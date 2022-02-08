@@ -1,21 +1,64 @@
-//import Dashboard from "./protected";
+import { useEffect, useState } from "react";
+
 import supabase from "../utils/supabaseClient";
+//import Dashboard from "./protected";
 
 const Login = () => {
-  const handleSubmit = async (e) => {
-    try {
-      e.preventDefault();
+  const [creatorsEmail, setCreatorsEmail] = useState("");
+  const [sponsorsEmail, setSponsorsEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
-      const email = e.target.email.value;
-      if (e.target.email.name === "creator-email") {
-        await supabase.auth.signIn({ email });
-      } else if (e.target.email.name === "sponsor-email") {
-        await supabase.auth.signIn({ email });
+  //  useEffect(() => {
+  //    supabase.auth.signIn({
+  //      provider: "google",
+  //    });
+  //  });
+
+  async function signIn() {
+    try {
+      if (!creatorsEmail || !sponsorsEmail) return;
+
+      if (creatorsEmail) {
+        const { data } = await supabase.auth.signIn({ creatorsEmail });
+      } else if (sponsorsEmail) {
+        const { data } = await supabase.auth.signIn({ sponsorsEmail });
+      } else {
+        setSubmitted(true);
       }
     } catch (error) {
       console.log(error);
     }
-  };
+  }
+
+  if (submitted) {
+    return (
+      <>
+        <div>
+          <h1>Please check your email to sign in</h1>
+        </div>
+      </>
+    );
+  }
+
+  //  .............................
+  //  const handleSubmit = async (e) => {
+  //    try {
+  //      e.preventDefault();
+
+  //      const email = e.target.email.value;
+  //      if (e.target.email.name === "creator-email") {
+  //        await supabase.auth.signIn({ email });
+  //      } else if (e.target.email.name === "sponsor-email") {
+  //        await supabase.auth.signIn({ email });
+  //      }
+  //    } catch (error) {
+  //      console.log(error);
+  //    }
+  //  };
+
+  //  .............................
+  //  const [currentUser, setCurrentUser] = useState(null);
+  //  const [session, setSession] = useState(supabase.auth.session());
 
   return (
     <>
@@ -91,7 +134,7 @@ const Login = () => {
                 </div>
 
                 <div>
-                  <form onSubmit={handleSubmit} className="space-y-6" action="#" method="POST">
+                  <form className="space-y-6" action="#" method="POST">
                     <div className=" mt-5">
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                         Or via email address associated with your account
@@ -101,6 +144,7 @@ const Login = () => {
                           id="email"
                           name="creator-email"
                           type="email"
+                          onChange={(e) => setCreatorsEmail(e.target.value)}
                           placeholder="Get login link sent to your email"
                           autoComplete="email"
                           required
@@ -132,7 +176,7 @@ const Login = () => {
               </div>
 
               <div className="mt-6">
-                <form onSubmit={handleSubmit} action="#" method="POST" className="space-y-6">
+                <form action="#" method="POST" className="space-y-6">
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                       Email address
@@ -141,6 +185,7 @@ const Login = () => {
                       <input
                         id="email"
                         name="sponsor-email"
+                        onChange={(e) => setSponsorsEmail(e.target.value)}
                         placeholder="Get login link sent to your email"
                         type="email"
                         autoComplete="email"
