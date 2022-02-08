@@ -29,7 +29,7 @@ export default function Navbar({ authenticated }) {
     router.push("/");
   }
 
-  console.log("user is:", userAuthenticated);
+  console.log("user is:", userAuthenticated.role);
 
   return (
     <Popover className="fixed z-10 w-full bg-white">
