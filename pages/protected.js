@@ -122,8 +122,7 @@ const team = [
 //  return classes.filter(Boolean).join(" ");
 //}
 
-export default function Page({ user }) {
-  console.log(user);
+export default function Page() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   let [isOpen, setIsOpen] = useState(false);
   const [profileDashboard, setProfileDashboard] = useState(null);
@@ -543,15 +542,15 @@ export default function Page({ user }) {
   );
 }
 
-export async function getServerSideProps({ req }) {
-  const { user } = await supabase.auth.api.getUserByCookie(req);
+//export async function getServerSideProps({ req }) {
+//  const { user } = await supabase.auth.api.getUserByCookie(req);
 
-  if (!user) {
-    return {
-      props: {},
-      redirect: { destination: "/login" },
-    };
-  }
+//  if (!user) {
+//    return {
+//      props: {},
+//      redirect: { destination: "/login" },
+//    };
+//  }
 
-  return { props: { user } };
-}
+//  return { props: { user } };
+//}

@@ -6,8 +6,9 @@ import Search from "../components/Search";
 import TuberOne from "../components/TuberOne";
 import supabase from "../utils/supabaseClient";
 
-export default function Home({ finalData, youtubeDataJson }) {
+export default function Home({ finalData, youtubeDataJson, user }) {
   console.log("youtubeDataJson", youtubeDataJson);
+  console.log("user", user);
 
   return (
     <>
@@ -79,7 +80,7 @@ export default function Home({ finalData, youtubeDataJson }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ req }) {
   //Base Url
   const baseUrl = "https://www.tuberdome.com";
   const gBaseUrl = "https://www.googleapis.com/youtube/v3";
@@ -108,12 +109,22 @@ export async function getServerSideProps() {
     throw new Error(error);
   }
 
+  const { user } = await supabase.auth.api.getUserByCookie(req);
+
+  if (user) {
+    return {
+      props: {},
+      redirect: { destination: "/protected" },
+    };
+  }
+
   //Return data
   return {
     props: {
       finalData,
       youtubeDataJson,
       creators,
+      user,
     },
   };
 }
