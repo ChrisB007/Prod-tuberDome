@@ -17,11 +17,12 @@ function Layout({ children }) {
       }
       handleAuthChange(event, session);
       if (event === "SIGNED_IN") {
-        setAuthenticated("authenticated");
+        setAuthenticated("User is authenticated");
         router.push("/protected");
       }
       if (event === "SIGNED_OUT") {
         setAuthenticated("User is not authenticated");
+        router.push("/"); // redirect to home page for try out
       }
     });
     checkUser();
