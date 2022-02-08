@@ -147,8 +147,8 @@ export default function Page() {
 
   if (!profileDashboard) return null;
 
-  console.log(profileDashboard.email);
-  console.log(profileDashboard.id);
+  console.log("profile email:", profileDashboard.email);
+  console.log("profile Id:", profileDashboard.id);
   return (
     <div className="relative h-screen flex overflow-hidden bg-white">
       <Transition.Root show={sidebarOpen} as={Fragment}>
