@@ -4,6 +4,7 @@ async function index(req, res) {
   const httpMethod = req.method;
   const {
     name,
+    channelID,
     subscribers,
     image,
     total_views,
@@ -23,6 +24,7 @@ async function index(req, res) {
     case "POST":
       res.status(200).json({
         name,
+        channelID,
         subscribers,
         image,
         total_views,

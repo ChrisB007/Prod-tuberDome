@@ -6,10 +6,6 @@ import { Fragment, useEffect, useState } from "react";
 
 import supabase from "../utils/supabaseClient";
 
-//function classNames(...classes) {
-//  return classes.filter(Boolean).join(" ");
-//}
-
 export default function Navbar({ authenticated }) {
   const [userAuthenticated, setUserAuthenticated] = useState(authenticated);
 
@@ -17,7 +13,7 @@ export default function Navbar({ authenticated }) {
 
   useEffect(() => {
     fetchDashboard();
-  }, []);
+  }, [userAuthenticated]);
 
   async function fetchDashboard() {
     const profileData = await supabase.auth.user();

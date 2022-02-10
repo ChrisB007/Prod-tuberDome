@@ -1,8 +1,9 @@
 const lists = [
   {
     id: 1,
+    channelID: "UCNqpN335uVY9Sx_ZK_WuOAA",
     name: "Outdoor Chef Life",
-    subscribers: 529000,
+    subscribers: 520,
     image:
       "https://yt3.ggpht.com/ytc/AKedOLQlrhkM6l1W8XZrNI9Jy5J3C4iVAGn7FwyfKf9c=s176-c-k-c0x00ffffff-no-rj",
     total_views: 57841601,
@@ -17,6 +18,7 @@ const lists = [
   },
   {
     id: 2,
+    channelID: "UCfRtwc6K_VU9N4OjNnU2P7g",
     name: "Justin Kan",
     subscribers: 148000,
     image:
@@ -33,7 +35,8 @@ const lists = [
   },
   {
     id: 3,
-    name: "Web Dev Simplified",
+    channelID: "UCG8rbF3g2AMX70yOd8vqIZg",
+    name: "Logan Paul",
     subscribers: 669000,
     image:
       "https://yt3.ggpht.com/ytc/AKedOLQpvSjzSCSo8ZKCjBZS7TRX7omb_kyQirh2zgEY=s176-c-k-c0x00ffffff-no-rj",
@@ -49,7 +52,8 @@ const lists = [
   },
   {
     id: 4,
-    name: "Weed 'em & Reap",
+    channelID: "UCjsExtizDZK6SMBw6pSZOPQ",
+    name: "LaughPlanet",
     subscribers: 665000,
     image:
       "https://yt3.ggpht.com/ytc/AKedOLQ54ZRB3Z5yogTTI3PWxhWrW_zcGAKCFR5UErUsNQ=s176-c-k-c0x00ffffff-no-rj",
@@ -65,6 +69,7 @@ const lists = [
   },
   {
     id: 5,
+    channelID: "UChYs-_zjKRYhdMddjx-NPLw",
     name: "Singh in USA",
     subscribers: 673000,
     image:
@@ -80,6 +85,7 @@ const lists = [
   },
   {
     id: 6,
+    channelID: "UCqrILQNl5Ed9Dz6CGMyvMTQ",
     name: "Clever Programmer",
     subscribers: 1000100,
     image:
@@ -96,6 +102,7 @@ const lists = [
   },
   {
     id: 7,
+    channelID: "UCBJ1rwS7ARoCWLdab0wLD-Q",
     name: "BMF VR",
     subscribers: 176000,
     image:
@@ -112,6 +119,7 @@ const lists = [
   },
   {
     id: 8,
+    channelID: "UCYzfVBuCfGz-oF3aOCGgO5g",
     name: "Brett Kollmann",
     subscribers: 309000,
     image:
@@ -127,6 +135,7 @@ const lists = [
   },
   {
     id: 9,
+    channelID: "UCw9zJ3qnebPPGsutiEAvu5Q",
     name: "Parker Walbeck",
     subscribers: 16000000,
     image:
@@ -143,6 +152,7 @@ const lists = [
   },
   {
     id: 10,
+    channelID: "UCP-iaFrmWcOG0o461wMicdg",
     name: "TheGamingBeaver",
     subscribers: 3000035,
     image:
@@ -159,7 +169,8 @@ const lists = [
   },
   {
     id: 11,
-    name: "Outdoor Chef Life",
+    channelID: "UC4xKdmAXFh4ACyhpiQ_3qBw",
+    name: "TechLead",
     subscribers: 529000,
     image:
       "https://yt3.ggpht.com/ytc/AKedOLQlrhkM6l1W8XZrNI9Jy5J3C4iVAGn7FwyfKf9c=s176-c-k-c0x00ffffff-no-rj",
@@ -175,6 +186,7 @@ const lists = [
   },
   {
     id: 12,
+    channelID: "UCdtXPiqI2cLorKaPrfpKc4g",
     name: "Entertainment Tonight",
     subscribers: 400044,
     image:
@@ -191,6 +203,7 @@ const lists = [
   },
   {
     id: 13,
+    channelID: "UCL8w_A8p8P1HWI3k6PR5Z6w",
     name: "Two Cents",
     subscribers: 616000,
     image:
@@ -207,6 +220,7 @@ const lists = [
   },
   {
     id: 14,
+    channelID: "UCXUyg1vYSupswhi0zNeD-5w",
     name: "Linda Raynier",
     subscribers: 849000,
     image:
@@ -223,6 +237,7 @@ const lists = [
   },
   {
     id: 15,
+    channelID: "UCBJycsmduvYEL83R_U4JriQ",
     name: "Marques Brownlee",
     subscribers: 14000700,
     image:
@@ -239,6 +254,7 @@ const lists = [
   },
   {
     id: 16,
+    channelID: "UCw95JvOs39snnMPkYs-6Sog",
     name: "Jasmine Brown",
     subscribers: 200039,
     image:
@@ -254,6 +270,7 @@ const lists = [
   },
   {
     id: 17,
+    channelID: "UCk9aeo2A6a1fg3VeRueTn9w",
     name: "AmandaRachLee",
     subscribers: 2000070,
     image:
@@ -270,6 +287,7 @@ const lists = [
   },
   {
     id: 18,
+    channelID: "UCQ-hpFPF4nOKoKPEAZM_THw",
     name: "TopTenz",
     subscribers: 1000920,
     image:
@@ -286,6 +304,7 @@ const lists = [
   },
   {
     id: 19,
+    channelID: "UCtTK007CgzZZXroYjY_UBRA",
     name: "Arden Rose",
     subscribers: 1000045,
     image:
@@ -302,7 +321,178 @@ const lists = [
   },
   {
     id: 20,
+    channelID: "UCz9IglFzRsmPkVb1G8qifuA",
     name: "Magic Murray",
+    subscribers: 1000077,
+    image:
+      "https://yt3.ggpht.com/ytc/AKedOLQ8mHOoPelyDd7nxIn7f5LrDu2jWGzk5uS09_Gh=s176-c-k-c0x00ffffff-no-rj",
+    total_views: 224050154,
+    categories: "Comedy",
+    rate: 2000,
+    availability: false,
+    channelUrl: "https://www.youtube.com/c/magicmurray/",
+    description:
+      " Murray SawChuck 'Celebrity Magician'. Magician, Prankster, Illusionist, Comedian as seen on Pawn Stars, America's Got Talent, Comedy Central. Weekly uploads of magic prank videos, every Wednesday. ",
+    featured: "false",
+    contact: "MagicMurraySawChuck@gmail.com",
+  },
+  {
+    id: 21,
+    channelID: "UCV0qA-eDDICsRR9rPcnG7tw",
+    name: "Joma Tech",
+    subscribers: 1000077,
+    image:
+      "https://yt3.ggpht.com/ytc/AKedOLQ8mHOoPelyDd7nxIn7f5LrDu2jWGzk5uS09_Gh=s176-c-k-c0x00ffffff-no-rj",
+    total_views: 224050154,
+    categories: "Comedy",
+    rate: 2000,
+    availability: false,
+    channelUrl: "https://www.youtube.com/c/magicmurray/",
+    description:
+      " Murray SawChuck 'Celebrity Magician'. Magician, Prankster, Illusionist, Comedian as seen on Pawn Stars, America's Got Talent, Comedy Central. Weekly uploads of magic prank videos, every Wednesday. ",
+    featured: "false",
+    contact: "MagicMurraySawChuck@gmail.com",
+  },
+  {
+    id: 22,
+    channelID: "UCQwf9pTxhiZdGF6m2Ugcsag",
+    name: "Oh Polly",
+    subscribers: 1000077,
+    image:
+      "https://yt3.ggpht.com/ytc/AKedOLQ8mHOoPelyDd7nxIn7f5LrDu2jWGzk5uS09_Gh=s176-c-k-c0x00ffffff-no-rj",
+    total_views: 224050154,
+    categories: "Comedy",
+    rate: 2000,
+    availability: false,
+    channelUrl: "https://www.youtube.com/c/magicmurray/",
+    description:
+      " Murray SawChuck 'Celebrity Magician'. Magician, Prankster, Illusionist, Comedian as seen on Pawn Stars, America's Got Talent, Comedy Central. Weekly uploads of magic prank videos, every Wednesday. ",
+    featured: "false",
+    contact: "MagicMurraySawChuck@gmail.com",
+  },
+  {
+    id: 23,
+    channelID: "UCRH6FEPoRlqFLY_-TOs78Aw",
+    name: "deermeatfordinner",
+    subscribers: 1000077,
+    image:
+      "https://yt3.ggpht.com/ytc/AKedOLQ8mHOoPelyDd7nxIn7f5LrDu2jWGzk5uS09_Gh=s176-c-k-c0x00ffffff-no-rj",
+    total_views: 224050154,
+    categories: "Comedy",
+    rate: 2000,
+    availability: false,
+    channelUrl: "https://www.youtube.com/c/magicmurray/",
+    description:
+      " Murray SawChuck 'Celebrity Magician'. Magician, Prankster, Illusionist, Comedian as seen on Pawn Stars, America's Got Talent, Comedy Central. Weekly uploads of magic prank videos, every Wednesday. ",
+    featured: "false",
+    contact: "MagicMurraySawChuck@gmail.com",
+  },
+  {
+    id: 24,
+    channelID: "UC3Vuq4Q1bKFtAiKYlwRv3oA",
+    name: "Peter Santenello",
+    subscribers: 1000077,
+    image:
+      "https://yt3.ggpht.com/ytc/AKedOLQ8mHOoPelyDd7nxIn7f5LrDu2jWGzk5uS09_Gh=s176-c-k-c0x00ffffff-no-rj",
+    total_views: 224050154,
+    categories: "Comedy",
+    rate: 2000,
+    availability: false,
+    channelUrl: "https://www.youtube.com/c/magicmurray/",
+    description:
+      " Murray SawChuck 'Celebrity Magician'. Magician, Prankster, Illusionist, Comedian as seen on Pawn Stars, America's Got Talent, Comedy Central. Weekly uploads of magic prank videos, every Wednesday. ",
+    featured: "false",
+    contact: "MagicMurraySawChuck@gmail.com",
+  },
+  {
+    id: 25,
+    channelID: "UCk3qsDyU2gwyz3sL6VP3fUQ",
+    name: "Landshark Outdoors ",
+    subscribers: 1000077,
+    image:
+      "https://yt3.ggpht.com/ytc/AKedOLQ8mHOoPelyDd7nxIn7f5LrDu2jWGzk5uS09_Gh=s176-c-k-c0x00ffffff-no-rj",
+    total_views: 224050154,
+    categories: "Comedy",
+    rate: 2000,
+    availability: false,
+    channelUrl: "https://www.youtube.com/c/magicmurray/",
+    description:
+      " Murray SawChuck 'Celebrity Magician'. Magician, Prankster, Illusionist, Comedian as seen on Pawn Stars, America's Got Talent, Comedy Central. Weekly uploads of magic prank videos, every Wednesday. ",
+    featured: "false",
+    contact: "MagicMurraySawChuck@gmail.com",
+  },
+  {
+    id: 26,
+    channelID: "UC29vLPlafHcsqZu3L-Rk_pA",
+    name: "Kurt Caz",
+    subscribers: 1000077,
+    image:
+      "https://yt3.ggpht.com/ytc/AKedOLQ8mHOoPelyDd7nxIn7f5LrDu2jWGzk5uS09_Gh=s176-c-k-c0x00ffffff-no-rj",
+    total_views: 224050154,
+    categories: "Comedy",
+    rate: 2000,
+    availability: false,
+    channelUrl: "https://www.youtube.com/c/magicmurray/",
+    description:
+      " Murray SawChuck 'Celebrity Magician'. Magician, Prankster, Illusionist, Comedian as seen on Pawn Stars, America's Got Talent, Comedy Central. Weekly uploads of magic prank videos, every Wednesday. ",
+    featured: "false",
+    contact: "MagicMurraySawChuck@gmail.com",
+  },
+  {
+    id: 27,
+    channelID: "UCbpMy0Fg74eXXkvxJrtEn3w",
+    name: "Bon Appétit",
+    subscribers: 1000077,
+    image:
+      "https://yt3.ggpht.com/ytc/AKedOLQ8mHOoPelyDd7nxIn7f5LrDu2jWGzk5uS09_Gh=s176-c-k-c0x00ffffff-no-rj",
+    total_views: 224050154,
+    categories: "Comedy",
+    rate: 2000,
+    availability: false,
+    channelUrl: "https://www.youtube.com/c/magicmurray/",
+    description:
+      " Murray SawChuck 'Celebrity Magician'. Magician, Prankster, Illusionist, Comedian as seen on Pawn Stars, America's Got Talent, Comedy Central. Weekly uploads of magic prank videos, every Wednesday. ",
+    featured: "false",
+    contact: "MagicMurraySawChuck@gmail.com",
+  },
+  {
+    id: 28,
+    channelID: "UC6GB47LqwaOPDNNmDh-QQTQ",
+    name: "Josh Harmon",
+    subscribers: 1000077,
+    image:
+      "https://yt3.ggpht.com/ytc/AKedOLQ8mHOoPelyDd7nxIn7f5LrDu2jWGzk5uS09_Gh=s176-c-k-c0x00ffffff-no-rj",
+    total_views: 224050154,
+    categories: "Comedy",
+    rate: 2000,
+    availability: false,
+    channelUrl: "https://www.youtube.com/c/magicmurray/",
+    description:
+      " Murray SawChuck 'Celebrity Magician'. Magician, Prankster, Illusionist, Comedian as seen on Pawn Stars, America's Got Talent, Comedy Central. Weekly uploads of magic prank videos, every Wednesday. ",
+    featured: "false",
+    contact: "MagicMurraySawChuck@gmail.com",
+  },
+  {
+    id: 29,
+    channelID: "UCaqi3SRvGTlPptx0ns90UOA",
+    name: "Rabbert",
+    subscribers: 1000077,
+    image:
+      "https://yt3.ggpht.com/ytc/AKedOLQ8mHOoPelyDd7nxIn7f5LrDu2jWGzk5uS09_Gh=s176-c-k-c0x00ffffff-no-rj",
+    total_views: 224050154,
+    categories: "Comedy",
+    rate: 2000,
+    availability: false,
+    channelUrl: "https://www.youtube.com/c/magicmurray/",
+    description:
+      " Murray SawChuck 'Celebrity Magician'. Magician, Prankster, Illusionist, Comedian as seen on Pawn Stars, America's Got Talent, Comedy Central. Weekly uploads of magic prank videos, every Wednesday. ",
+    featured: "false",
+    contact: "MagicMurraySawChuck@gmail.com",
+  },
+  {
+    id: 30,
+    channelID: "UC-lHJZR3Gqxm24_Vd_AJ5Yw",
+    name: "PewDiePie",
     subscribers: 1000077,
     image:
       "https://yt3.ggpht.com/ytc/AKedOLQ8mHOoPelyDd7nxIn7f5LrDu2jWGzk5uS09_Gh=s176-c-k-c0x00ffffff-no-rj",

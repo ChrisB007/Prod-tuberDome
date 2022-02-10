@@ -6,18 +6,8 @@ import SlideInfo from "../pages/slideinfo";
 //  return classes.filter(Boolean).join(" ");
 //}
 
-export default function CreatorsList({
-  name,
-  image,
-  description,
-  subscribers,
-  categories,
-  total_views,
-  rate,
-}) {
-  //  const [open, setOpen] = useState(false);
-  //  const [info, setInfo] = useState({});
-
+export default function CreatorsList(props) {
+  const { name, image, description, subscribers, channelID, categories, total_views, rate } = props;
   const handleClick = () => {
     <SlideInfo />;
   };
@@ -33,6 +23,7 @@ export default function CreatorsList({
           <li className="flex flex-col text-2xl">{name}</li>
           <li className="truncate flex flex-col">{description}</li>
           <li>Category: {categories}</li>
+          <li>Category: {channelID}</li>
           <div className="-mt-px flex divide-x divide-gray-100">
             <div className="-ml-px w-0 flex-1 flex">
               <a
