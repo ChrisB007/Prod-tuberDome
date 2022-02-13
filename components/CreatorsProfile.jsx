@@ -6,8 +6,16 @@ import SlideInfo from "../pages/slideinfo";
 //  return classes.filter(Boolean).join(" ");
 //}
 
-export default function CreatorsList(props) {
-  const { name, image, description, subscribers, channelID, categories, total_views, rate } = props;
+export default function CreatorsList({
+  title,
+  description,
+  subscribers,
+  total_views,
+  rate,
+  viewCount,
+  customUrl,
+  image,
+}) {
   const handleClick = () => {
     <SlideInfo />;
   };
@@ -20,16 +28,16 @@ export default function CreatorsList(props) {
           <li className="flex flex-col">
             <img src={image} alt="creators" className="m-auto object-cover rounded-lg pb-4 w-80 " />
           </li>
-          <li className="flex flex-col text-2xl">{name}</li>
+          <li className="flex flex-col text-2xl">{title}</li>
           <li className="truncate flex flex-col">{description}</li>
-          <li>Category: {categories}</li>
-          <li>Category: {channelID}</li>
+          {/*<li>Category: {categories}</li>*/}
           <div className="-mt-px flex divide-x divide-gray-100">
             <div className="-ml-px w-0 flex-1 flex">
               <a
                 href=""
                 className="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg ">
-                <span className="">Subscribers: {subscribers} </span>
+                <span className="px-8">Subscribers: {subscribers}</span>
+                <span className="">Views: {viewCount}</span>
               </a>
             </div>
           </div>
@@ -39,8 +47,7 @@ export default function CreatorsList(props) {
                 href=""
                 className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg ">
                 <span className="">
-                  Total Views
-                  <br /> {Math.round(`${total_views}` / 1000000)} Million
+                  <img className="w-4" src="/images/ethereum.png" alt="ethereum logo" />
                 </span>
               </a>
             </div>
@@ -48,7 +55,7 @@ export default function CreatorsList(props) {
               <a
                 href=""
                 className="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg ">
-                <span className="">My Rates {`$${rate}`}</span>
+                <span className="">USD </span>
               </a>
             </div>
           </div>
