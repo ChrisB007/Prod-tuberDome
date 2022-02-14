@@ -36,8 +36,12 @@ export default function CreatorsList({
               <a
                 href=""
                 className="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg ">
-                <span className="px-8">Subscribers: {subscribers}</span>
-                <span className="">Views: {viewCount}</span>
+                <span className="px-8">
+                  Subscribers: {String(subscribers).replace(/(.)(?=(\d{3})+$)/g, "$1,")}
+                </span>
+                <span className="">
+                  Views: {String(viewCount).replace(/(.)(?=(\d{3})+$)/g, "$1,")}
+                </span>
               </a>
             </div>
           </div>
