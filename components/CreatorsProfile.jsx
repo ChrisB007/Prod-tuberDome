@@ -29,7 +29,7 @@ export default function CreatorsList({
             <img src={image} alt="creators" className="m-auto object-cover rounded-lg pb-4 w-80 " />
           </li>
           <li className="flex flex-col text-2xl">{title}</li>
-          <li className="truncate flex flex-col">{description}</li>
+          <li className="truncate ... flex flex-wrap flex-col">{description}</li>
           {/*<li>Category: {categories}</li>*/}
           <div className="-mt-px flex divide-x divide-gray-100">
             <div className="-ml-px w-0 flex-1 flex">
@@ -45,7 +45,7 @@ export default function CreatorsList({
               </a>
             </div>
           </div>
-          <div className="-mt-px flex divide-x divide-gray-100">
+          {/*<div className="-mt-px flex divide-x divide-gray-100">
             <div className="w-0 flex-1 flex">
               <a
                 href=""
@@ -62,11 +62,11 @@ export default function CreatorsList({
                 <span className="">USD </span>
               </a>
             </div>
-          </div>
+          </div>*/}
           <button
             className="hover:text-gray-500 w-8/12 h-8 bg-gray-100 rounded-lg text-gray-700 flex justify-center items-center m-auto"
             onClick={handleClick}>
-            More information
+            <img className="w-4" src="/images/ethereum.png" alt="ethereum logo" /> Get my rates
           </button>
         </ul>
       </div>
