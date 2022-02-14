@@ -1,10 +1,38 @@
+//import supabase from "../utils/supabaseClient";
+import supabase from "@supabase/supabase-js";
 import { useState } from "react";
 
-import supabase from "../utils/supabaseClient";
-//import Dashboard from "./protected";
+/* 
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0NDA0Mjc0MSwiZXhwIjoxOTU5NjE4NzQxfQ.E4r0_aUdtghoGyImnXIfyNRDqUBMPJwzAO6qjTrMH3g'
+
+
+const SUPABASE_URL = "https://rimloercpmnimjgwmcav.supabase.co"
+
+const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+*/
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
+
+  const loginWithAuth = async (e) => {
+    try {
+      e.preventDefault();
+      if (e.target.id === "creator-google") {
+        const { user, session, error } = await supabase.auth.signIn({
+          provider: "google",
+        });
+      } else if (e.target.id === "creator-twitch") {
+        const { user, session, error } = await supabase.auth.signIn({
+          provider: "twitch",
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const logOut = () => {};
 
   const handleSubmit = async (e) => {
     try {
@@ -43,7 +71,7 @@ const Login = () => {
                       <button
                         id="creator-google"
                         className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
-                        onClick={""}>
+                        onClick={loginWithAuth}>
                         <span className="sr-only">Login / Sign up with Google</span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +101,7 @@ const Login = () => {
                     <div>
                       <button
                         id="creator-twitch"
-                        onClick={""}
+                        onClick={loginWithAuth}
                         className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
                         <span className="sr-only">Login / Sign up with Twitch</span>
                         <svg

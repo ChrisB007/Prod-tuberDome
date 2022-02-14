@@ -6,16 +6,7 @@ import SlideInfo from "../pages/slideinfo";
 //  return classes.filter(Boolean).join(" ");
 //}
 
-export default function CreatorsList({
-  title,
-  description,
-  subscribers,
-  ETH,
-  rate,
-  viewCount,
-  customUrl,
-  image,
-}) {
+export default function CreatorsList({ title, description, subscribers, viewCount, image }) {
   const handleClick = () => {
     <SlideInfo />;
   };
@@ -45,24 +36,6 @@ export default function CreatorsList({
               </a>
             </div>
           </div>
-          {/*<div className="-mt-px flex divide-x divide-gray-100">
-            <div className="w-0 flex-1 flex">
-              <a
-                href=""
-                className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg ">
-                <span className="">
-                  <img className="w-4" src="/images/ethereum.png" alt="ethereum logo" />
-                </span>
-              </a>
-            </div>
-            <div className="-ml-px w-0 flex-1 flex">
-              <a
-                href=""
-                className="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg ">
-                <span className="">USD </span>
-              </a>
-            </div>
-          </div>*/}
           <button
             className="hover:text-gray-500 w-8/12 h-8 bg-gray-100 rounded-lg text-gray-700 flex justify-center items-center m-auto"
             onClick={handleClick}>
