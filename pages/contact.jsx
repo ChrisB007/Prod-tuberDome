@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import Converter from "../components/currency_converter";
 
 function contactUS() {
   return (
@@ -15,6 +15,7 @@ function contactUS() {
             <p className="mt-3 text-lg leading-6 text-gray-500">
               Send us note, we are excited to hear from you.
             </p>
+            <Converter />
             <dl className="mt-8 text-base text-gray-500">
               <div>
                 <dt className="sr-only">Location</dt>
@@ -26,14 +27,14 @@ function contactUS() {
             </dl>
           </div>
         </div>
+
         <div className="bg-white py-16 px-4 sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12">
           <div className="max-w-lg mx-auto lg:max-w-none">
             <form
               action="#"
               method="POST"
               className="grid grid-cols-1 gap-y-6"
-              onSubmit={console.log("hello")}
-            >
+              onSubmit={console.log("hello")}>
               <div>
                 <label htmlFor="full_name" className="sr-only">
                   Full name
@@ -45,8 +46,8 @@ function contactUS() {
                   autoComplete="name"
                   className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-red-500 focus:border-red-500 border-gray-300 rounded-md"
                   placeholder="Enter your full name"
-                  value=""
-                  onChange=""
+                  value={""}
+                  onChange={console.log("hello")}
                 />
               </div>
               <div>
@@ -60,8 +61,8 @@ function contactUS() {
                   autoComplete="email"
                   className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-red-500 focus:border-red-500 border-gray-300 rounded-md"
                   placeholder="Enter your email"
-                  value=""
-                  onChange=""
+                  value={""}
+                  onChange={console.log("hello")}
                 />
               </div>
               <div>
@@ -74,7 +75,7 @@ function contactUS() {
                   id="subject"
                   className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-red-500 focus:border-red-500 border-gray-300 rounded-md"
                   placeholder="Subject"
-                  value=""
+                  value={""}
                 />
               </div>
               <div>
@@ -87,14 +88,13 @@ function contactUS() {
                   rows={4}
                   className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-red-500 focus:border-red-500 border border-gray-300 rounded-md"
                   placeholder=" Please type your message to us here"
-                  value=""
+                  value={""}
                 />
               </div>
               <div>
                 <button
                   type="submit"
-                  className="inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-                >
+                  className="inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                   Submit
                 </button>
               </div>

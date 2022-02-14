@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { title } from "process";
 import { useEffect, useState } from "react";
 
 import channelList from "../components/channelList";
@@ -9,19 +8,18 @@ import Search from "../components/Search";
 import TuberOne from "../components/TuberOne";
 import supabase from "../utils/supabaseClient";
 
-export default function Home({ finalData, channelID }) {
+export default function Home({ channelID, response }) {
   const [creators, setCreators] = useState(channelID);
+  const [ethRate, setEthRate] = useState(response.data[1].quote.USD.price);
 
   const creatorsList = creators.map((creator) => {
     return creator[0];
   });
 
-  creatorsList.map((list) => {
-    const snippets = list.snippet;
-    const stats = list.statistics;
-    //    console.log("CreatorsTitle", snippets);
-    //    console.log("CreatorsStats", stats);
-  });
+  //  setEthRate(ethRate);
+  useEffect(() => {
+    setEthRate(ethRate);
+  }, [ethRate]);
 
   return (
     <>
@@ -62,6 +60,7 @@ export default function Home({ finalData, channelID }) {
                         image={high.url}
                         subscribers={subscriberCount}
                         viewCount={viewCount}
+                        ETH={ethRate}
                       />
                     </div>
                   </div>
@@ -85,6 +84,7 @@ export default function Home({ finalData, channelID }) {
                         image={high.url}
                         subscribers={subscriberCount}
                         viewCount={viewCount}
+                        ETH={ethRate}
                       />
                     </div>
                   </div>
@@ -100,8 +100,10 @@ export default function Home({ finalData, channelID }) {
 
 export async function getServerSideProps({ req }) {
   //Base Url
-  const baseUrl = "http://localhost:3000"; //"https://www.tuberdome.com"
   const gBaseUrl = "https://www.googleapis.com/youtube/v3";
+  const url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
+
+  //  Youtube related
   const channelID = [];
 
   for (const channel of channelList) {
@@ -115,21 +117,12 @@ export async function getServerSideProps({ req }) {
     `${gBaseUrl}/videoCategories?part=snippet&regionCode=US&key=${process.env.YOUTUBE_API_KEY}`,
   ).then((res) => res.json());
 
-  const initialData = await fetch(`${baseUrl}/api/channels`, {
-    method: "GET",
-    headers: {
-      "User-Agent":
-        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36",
-      Accept: "application/json; charset=UTF-8",
-    },
-  });
-  const finalData = await initialData.json();
-
   const { data: creators, error } = await supabase.from("creators").select("*");
   if (error) {
     throw new Error(error);
   }
 
+  //Supabase Related
   const { user } = await supabase.auth.api.getUserByCookie(req);
 
   if (user) {
@@ -139,14 +132,29 @@ export async function getServerSideProps({ req }) {
     };
   }
 
+  // CoinMarketCap Related
+
+  const response = await fetch(url, {
+    headers: {
+      "X-CMC_PRO_API_KEY": `${process.env.CMC_PRO_API_KEY}`,
+    },
+  })
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
+
+  await supabase
+    .from("creators")
+    .select("*")
+    .then((res) => channelID.push(res.data));
+
   //Return data
   return {
     props: {
-      finalData,
       creators,
       user,
       categoryData,
       channelID,
+      response,
     },
   };
 }

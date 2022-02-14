@@ -10,7 +10,7 @@ export default function CreatorsList({
   title,
   description,
   subscribers,
-  total_views,
+  ETH,
   rate,
   viewCount,
   customUrl,
@@ -62,7 +62,7 @@ export default function CreatorsList({
           <button
             className="hover:text-gray-500 w-8/12 h-8 bg-gray-100 rounded-lg text-gray-700 flex justify-center items-center m-auto"
             onClick={handleClick}>
-            Sponsor my channel
+            More information
           </button>
         </ul>
       </div>
