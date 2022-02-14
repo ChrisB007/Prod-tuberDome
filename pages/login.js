@@ -1,16 +1,12 @@
-//import supabase from "../utils/supabaseClient";
-import supabase from "@supabase/supabase-js";
+import { createClient } from "@supabase/supabase-js";
 import { useState } from "react";
 
-/* 
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0NDA0Mjc0MSwiZXhwIjoxOTU5NjE4NzQxfQ.E4r0_aUdtghoGyImnXIfyNRDqUBMPJwzAO6qjTrMH3g'
+import supabase from "../utils/supabaseClient";
 
+const SUPABASE_KEY = process.env.NEXT_PUBLIC_SUPABASE_KEY;
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 
-const SUPABASE_URL = "https://rimloercpmnimjgwmcav.supabase.co"
-
-const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-
-*/
+const supabaseLogin = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -19,11 +15,11 @@ const Login = () => {
     try {
       e.preventDefault();
       if (e.target.id === "creator-google") {
-        const { user, session, error } = await supabase.auth.signIn({
+        const { user, session, error } = await supabaseLogin.auth.signIn({
           provider: "google",
         });
       } else if (e.target.id === "creator-twitch") {
-        const { user, session, error } = await supabase.auth.signIn({
+        const { user, session, error } = await supabaseLogin.auth.signIn({
           provider: "twitch",
         });
       }
