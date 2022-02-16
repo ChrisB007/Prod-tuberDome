@@ -102,7 +102,7 @@ const lists = [
   },
   {
     id: 7,
-    channelID: "UCBJ1rwS7ARoCWLdab0wLD-Q",
+    channelID: "UCJplp5SjeGSdVdwsfb9Q7lQ",
     name: "BMF VR",
     subscribers: 176000,
     image:
@@ -119,7 +119,7 @@ const lists = [
   },
   {
     id: 8,
-    channelID: "UCYzfVBuCfGz-oF3aOCGgO5g",
+    channelID: "UCUaT_39o1x6qWjz7K2pWcgw",
     name: "Brett Kollmann",
     subscribers: 309000,
     image:
