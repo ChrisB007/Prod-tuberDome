@@ -28,8 +28,6 @@ const Login = () => {
     }
   };
 
-  const logOut = () => {};
-
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
