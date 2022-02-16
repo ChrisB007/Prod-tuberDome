@@ -1,7 +1,7 @@
 const lists = [
   {
     id: 1,
-    channelID: "UCNqpN335uVY9Sx_ZK_WuOAA",
+    channelID: "UCRijo3ddMTht_IHyNSNXpNQ",
     name: "Outdoor Chef Life",
     subscribers: 520,
     image:
