@@ -18,7 +18,7 @@ const lists = [
   },
   {
     id: 2,
-    channelID: "UCfRtwc6K_VU9N4OjNnU2P7g",
+    channelID: "UCvK4bOhULCpmLabd2pDMtnA",
     name: "Justin Kan",
     subscribers: 148000,
     image:
@@ -186,7 +186,7 @@ const lists = [
   },
   {
     id: 12,
-    channelID: "UCdtXPiqI2cLorKaPrfpKc4g",
+    channelID: "UC29vLPlafHcsqZu3L-Rk_pA",
     name: "Entertainment Tonight",
     subscribers: 400044,
     image:

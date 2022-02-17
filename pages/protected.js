@@ -16,11 +16,13 @@ import {
   PhoneIcon,
   SearchIcon,
 } from "@heroicons/react/solid";
+import { data } from "autoprefixer";
 import { useRouter } from "next/router";
 import { Fragment, useEffect, useState } from "react";
 
 import Dashnav from "../components/Dashnav";
 import supabase from "../utils/supabaseClient";
+import SetChannelId from "./initial-page";
 
 //import PopUp from "../components/Popup";
 
@@ -126,11 +128,33 @@ export default function Page() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   let [isOpen, setIsOpen] = useState(false);
   const [profileDashboard, setProfileDashboard] = useState(null);
+  const [creatorsID, setCreatorsID] = useState([]);
   const router = useRouter();
 
   useEffect(() => {
     fetchDashboard();
   }, []);
+
+  // To do:
+  // 1. Fetch channel id from creators table and set it to state
+  // 2. If channel id is not set, show the initial-page
+  // 3. If channel id is set, show the dashboard
+
+  const fetchChanelId = async () => {
+    let { data: creators, error } = await supabase.from("creators").select("channelId");
+    if (error) {
+      throw new Error(error);
+    } else {
+      console.log("Data", data);
+      //return setCreatorsID((creators) => {
+      //  return [...creators, creators.channelId];
+      //});
+    }
+  };
+
+  useEffect(() => {
+    fetchChanelId();
+  }, [creatorsID]);
 
   async function fetchDashboard() {
     const profileData = await supabase.auth.user();
