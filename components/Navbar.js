@@ -3,6 +3,7 @@ import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Fragment, useEffect, useState } from "react";
+import Image from "next/image";
 
 import supabase from "../utils/supabaseClient";
 
@@ -36,8 +37,14 @@ export default function Navbar({ authenticated }) {
             <a
               href={userAuthenticated.role === "authenticated" ? "/protected" : "/"}
               className="flex">
-              <span className="sr-only">TuberDome</span>
-              <img className="h-8 w-auto sm:h-10" src="/images/berdome.png" alt="logo" />
+              <span className="sr-only">Sp nsors</span>
+              <Image
+                className="h-8 w-auto sm:h-10 object-contain"
+                src="/images/logo.png"
+                width={132}
+                height={45}
+                alt="logo"
+              />
             </a>
           </div>
           <div className="-mr-2 -my-2 md:hidden">
