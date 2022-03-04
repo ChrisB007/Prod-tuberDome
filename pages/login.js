@@ -50,7 +50,7 @@ const Login = () => {
     <>
       <div className="min-h-full flex">
         <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
-          <div className="mx-auto w-full max-w-sm lg:w-96">
+          <div className="mx-auto w-full mt-4 max-w-sm lg:w-96">
             <div>
               <h2 className="mt-6 text-3xl font-extrabold text-gray-900">Login or Sign up</h2>
             </div>
