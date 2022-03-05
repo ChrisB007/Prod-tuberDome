@@ -62,15 +62,17 @@ export default function Navbar({ authenticated }) {
               </a>
               <a
                 href="/creators"
-                className="text-base font-medium text-gray-500 hover:text-gray-900">
+                className="text-base md:text-sm font-medium text-gray-500 hover:text-gray-900">
                 Creators
               </a>
-              <a href="/invest" className="text-base font-medium text-gray-500 hover:text-gray-900">
+              <a
+                href="/invest"
+                className="text-base md:text-sm font-medium text-gray-500 hover:text-gray-900">
                 Investment Opportunities
               </a>
               <a
                 href="/contact"
-                className="text-base font-medium text-gray-500 hover:text-gray-900">
+                className="text-base md:text-sm font-medium text-gray-500 hover:text-gray-900">
                 Contact Us
               </a>
             </Popover.Group>
@@ -78,7 +80,7 @@ export default function Navbar({ authenticated }) {
               {userAuthenticated.aud !== "authenticated" ? (
                 <Link
                   href={"/login"}
-                  className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700">
+                  className="ml-8 inline-flex md:text-sm items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700">
                   <a>Sign In | Sign Up</a>
                 </Link>
               ) : (
