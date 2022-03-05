@@ -56,7 +56,7 @@ export default function Navbar({ authenticated }) {
           <div className="hidden md:flex-1 md:flex md:items-center md:justify-between">
             <Popover.Group as="nav" className="flex space-x-10">
               <a href="/sponsors">
-                <span className="text-base font-medium text-gray-500 hover:text-gray-900">
+                <span className="text-base md:text-sm font-medium text-gray-500 hover:text-gray-900">
                   Sponsors
                 </span>
               </a>
@@ -120,23 +120,23 @@ export default function Navbar({ authenticated }) {
                   <div className="grid grid-cols-2 gap-4">
                     <a
                       href="/sponsors"
-                      className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
+                      className="rounded-md md:text-sm text-base font-medium text-gray-900 hover:text-gray-700">
                       Sponsors
                     </a>
 
                     <a
                       href="/creators"
-                      className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
+                      className="rounded-md md:text-sm text-base font-medium text-gray-900 hover:text-gray-700">
                       Creators
                     </a>
                     <a
                       href="/invest"
-                      className="text-base font-medium text-gray-500 hover:text-gray-900">
+                      className="md:text-sm text-base font-medium text-gray-500 hover:text-gray-900">
                       Investment Opportunities
                     </a>
                     <a
                       href="/contact"
-                      className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
+                      className="rounded-md md:text-sm text-base font-medium text-gray-900 hover:text-gray-700">
                       Contact Us
                     </a>
                   </div>
@@ -148,7 +148,7 @@ export default function Navbar({ authenticated }) {
                 {userAuthenticated.aud !== "authenticated" ? (
                   <Link
                     href={"/login"}
-                    className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700">
+                    className="ml-8 md:text-sm text-base inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm font-medium text-white bg-gray-600 hover:bg-gray-700">
                     <a>Sign In | Sign Up</a>
                   </Link>
                 ) : (

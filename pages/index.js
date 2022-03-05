@@ -43,7 +43,7 @@ export default function Home({ channelID, response }) {
         <meta name="msapplication-TileColor" content="#ffffff"></meta>
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png"></meta>
         <meta name="theme-color" content="#ffffff"></meta>
-        <meta name="description" content="TuberDome description here"></meta>
+        <meta name="description" content="Sp nsors description here"></meta>
       </Head>
       <div>
         <>
