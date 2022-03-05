@@ -76,12 +76,12 @@ export default function Navbar({ authenticated }) {
                 Contact Us
               </a>
             </Popover.Group>
-            <div className="flex items-center md:ml-12">
+            <div className="flex items-center w-32 bg-red-400 rounded-md h-8  md:ml-12">
               {userAuthenticated.aud !== "authenticated" ? (
                 <Link
                   href={"/login"}
                   className="ml-8 inline-flex md:text-sm text-center items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700">
-                  <a>Sign In | Sign Up</a>
+                  <a className="text-white text-center m-auto">Sign In | Sign Up</a>
                 </Link>
               ) : (
                 <button onClick={() => signOut()}>Sign Out</button>
