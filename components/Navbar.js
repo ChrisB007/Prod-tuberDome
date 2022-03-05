@@ -76,7 +76,7 @@ export default function Navbar({ authenticated }) {
                 Contact Us
               </a>
             </Popover.Group>
-            <div className="flex items-center w-32 bg-red-400 rounded-md md:h10 h-8  md:ml-12">
+            <div className="flex items-center w-32 bg-red-400 rounded-md md:h-10 h-10  md:ml-12">
               {userAuthenticated.aud !== "authenticated" ? (
                 <Link
                   href={"/login"}
