@@ -53,7 +53,7 @@ export default function Navbar({ authenticated }) {
               <MenuIcon className="h-6 w-6" aria-hidden="true" />
             </Popover.Button>
           </div>
-          <div className="hidden md:flex-1 md:flex md:items-center md:justify-between">
+          <div className="hidden text-base md:text-sm md:flex-1 md:flex md:items-center md:justify-between">
             <Popover.Group as="nav" className="flex space-x-10">
               <a href="/sponsors">
                 <span className="text-base md:text-sm font-medium text-gray-500 hover:text-gray-900">
