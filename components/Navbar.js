@@ -1,9 +1,9 @@
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Fragment, useEffect, useState } from "react";
-import Image from "next/image";
 
 import supabase from "../utils/supabaseClient";
 
@@ -25,8 +25,6 @@ export default function Navbar({ authenticated }) {
     await supabase.auth.signOut();
     router.push("/");
   }
-
-  //  console.log("user is:", userAuthenticated.aud);
 
   return (
     <Popover className="fixed z-10 w-full bg-white">

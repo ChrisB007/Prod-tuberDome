@@ -1,15 +1,20 @@
-//import { useState } from "react";
+import { useState, useEffect } from "react";
+import SlideInfo from "./slideInfo";
 
-import SlideInfo from "../pages/slideinfo";
-
-//function classNames(...classes) {
-//  return classes.filter(Boolean).join(" ");
-//}
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
 
 export default function CreatorsList({ title, description, subscribers, viewCount, image }) {
-  const handleClick = () => {
-    <SlideInfo />;
-  };
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    setShow(() => {
+      const handleClick = () => {
+        <SlideInfo />;
+      };
+    });
+  }, []);
 
   return (
     <>
@@ -38,7 +43,7 @@ export default function CreatorsList({ title, description, subscribers, viewCoun
           </div>
           <button
             className="hover:text-gray-500 w-8/12 h-8 bg-gray-100 rounded-lg text-gray-700 flex justify-center items-center m-auto"
-            onClick={handleClick}>
+            onClick={() => setShow()}>
             <img className="w-4" src="/images/ethereum.png" alt="ethereum logo" /> Get my rates
           </button>
         </ul>
