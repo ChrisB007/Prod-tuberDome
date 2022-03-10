@@ -106,6 +106,7 @@ export default function Home({ channelID, response }) {
                 ?.slice(0, 18)
                 .filter((data) => {
                   const { title } = data.snippet;
+                  console.log(title);
                   return <>{title.toLowerCase().includes(search.toLowerCase())}</>;
                 })
                 .map((data) => {
