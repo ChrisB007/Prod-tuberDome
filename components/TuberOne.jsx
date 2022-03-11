@@ -45,9 +45,9 @@ export default function Marketing() {
             Here's a better way to manage sponsorships
           </p>
           <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-            Our services span across all facets of sponsorship for both sponsors and creators. From
-            planning, accomplishing tasks, and achieving sponsorship goals. Our services include but
-            are not limited to:
+            Our services span across all facets of sponsorship for you and your potential sponsors.
+            From planning and accomplishing tasks to achieving sponsorship goals, our services
+            include but are not limited to:
           </p>
         </div>
 
